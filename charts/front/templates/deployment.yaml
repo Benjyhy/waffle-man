@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}-{{ .Release.Name }}-deployment
+  labels:
+    app: {{ .Chart.Name }}-{{ .Release.Name }}-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}-{{ .Release.Name }}-deployment
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}-{{ .Release.Name }}-deployment
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.global.ghcrRepo }}{{ .Chart.Name }}:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      {{ include "t-clo-902.ingressPathsConfig" . }}
