@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: {{ .Chart.Name }}-{{ .Release.Name }}-ingress
+  namespace: default
+spec:
+  rules:
+  - http:
+      paths:
+        {{- range $key, $value := .Values.ingressPaths }}
+        {{- with $value }}
+        {{ include "t-clo-902.ingressPathsConfig" . }}
+        {{- end }}
+        {{- end }}

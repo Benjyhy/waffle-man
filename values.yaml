@@ -1,0 +1,12 @@
+dockerConfigJson: eyJhdXRocyI6eyJodHRwczovL2doY3IuaW8iOnsidXNlcm5hbWUiOiJiZW5qeWh5IiwicGFzc3dvcmQiOiJnaHBfd0VaUmJZdnVoVmNmOGJOTDNOZE1YaXREOTdaV3RTMTltMHFTIiwiZW1haWwiOiJyYW1ldC5iZW5qQGdtYWlsLmNvbSIsImF1dGgiOiJZbVZ1YW5sb2VUcG5hSEJmZDBWYVVtSlpkblZvVm1ObU9HSk9URE5PWkUxWWFYUkVPVGRhVjNSVE1UbHRNSEZUIn19fQ==
+ingressPaths:
+  front:
+    path: /
+    serviceName: front-service
+    port: 80
+  back:
+    path: /api/
+    serviceName: back-service
+    port: 6001
+global:
+  ghcrRepo: ghcr.io/benjyhy/
