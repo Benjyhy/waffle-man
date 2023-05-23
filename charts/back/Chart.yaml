@@ -12,4 +12,4 @@ dependencies:
   version: "0.1.0"
   repository: "file://../mysql/"
 	import-values:
-	- mysql
+		- mysql
