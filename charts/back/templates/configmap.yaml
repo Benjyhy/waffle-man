@@ -6,3 +6,6 @@ data:
 {{- range $key, $value := .Values }}
   {{ $key | snakecase | upper }}: {{ $value }}
 {{- end }}
+{{- range $key, $value := .Values.global.elasticsearch }}
+  {{ $key | snakecase | upper }}: {{ $value }}
+{{- end }}

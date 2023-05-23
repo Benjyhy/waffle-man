@@ -86,29 +86,9 @@ spec:
                 secretKeyRef:
                   name: rabbitmq-credentials
                   key: password
-            - name: ELASTICSEARCH_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: es-configmap
-                  key: es_host
             - name: ELASTICSEARCH_PASS
               valueFrom:
                 secretKeyRef:
                   name: es-secret
                   key: es_pass
-            - name: ELASTICSEARCH_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: es-configmap
-                  key: es_port
-            - name: ELASTICSEARCH_SCHEME
-              valueFrom:
-                configMapKeyRef:
-                  name: es-configmap
-                  key: es_scheme
-            - name: ELASTICSEARCH_USER
-              valueFrom:
-                configMapKeyRef:
-                  name: es-configmap
-                  key: es_user
       {{ include "t-clo-902.imagePullSecret" . }}

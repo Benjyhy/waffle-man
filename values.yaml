@@ -1,4 +1,18 @@
 dockerConfigJson: eyJhdXRocyI6eyJodHRwczovL2doY3IuaW8iOnsidXNlcm5hbWUiOiJiZW5qeWh5IiwicGFzc3dvcmQiOiJnaHBfd0VaUmJZdnVoVmNmOGJOTDNOZE1YaXREOTdaV3RTMTltMHFTIiwiZW1haWwiOiJyYW1ldC5iZW5qQGdtYWlsLmNvbSIsImF1dGgiOiJZbVZ1YW5sb2VUcG5hSEJmZDBWYVVtSlpkblZvVm1ObU9HSk9URE5PWkUxWWFYUkVPVGRhVjNSVE1UbHRNSEZUIn19fQ==
+amqp:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 800m
+    memory: 1Gi
+elasticsearch:
+  requests:
+    cpu: 5Gi
+    memory: 5Gi
+  limits:
+    cpu: 5Gi
+    memory: 1Gi
 ingressPaths:
   front:
     path: /
@@ -10,3 +24,8 @@ ingressPaths:
     port: 6001
 global:
   ghcrRepo: ghcr.io/benjyhy/
+  elasticsearch:
+    elasticsearchHost: elasticsearch-es-http
+    elasticsearchPort: "9200"
+    elasticsearchScheme: http
+    elasticsearchUser: elastic
