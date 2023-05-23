@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: { { include "t-clo-902.nameConfigmap" . } }
+data:
+  mysql_database: { { .Values.exports.mysql.mysqlDbName } }

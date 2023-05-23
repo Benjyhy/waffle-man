@@ -12,3 +12,19 @@
 imagePullSecrets:
   - name: ghcr-credentials
 {{- end }}
+
+{{- define "t-clo-902.nameService" -}}
+{{ .Chart.Name }}-{{ .Release.Name }}-service
+{{- end }}
+
+{{- define "t-clo-902.nameDeployment" -}}
+{{ .Chart.Name }}-{{ .Release.Name }}-deployment
+{{- end }}
+
+{{- define "t-clo-902.nameConfigmap" -}}
+{{ .Chart.Name }}-{{ .Release.Name }}-configmap
+{{- end }}
+
+{{- define "t-clo-902.nameSecret" -}}
+{{ .Chart.Name }}-{{ .Release.Name }}-secret
+{{- end }}

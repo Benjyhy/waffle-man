@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "t-clo-902.nameDeployment" . }}
+  labels:
+    app: {{ include "t-clo-902.nameDeployment" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "t-clo-902.nameDeployment" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "t-clo-902.nameDeployment" . }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}-{{ .Release.Name }}
+          image: mysql:{{. Values.exports.mysql.mysqlImageVersion }}
+          ports:
+            - containerPort: {{ .Values.exports.mysql.mysqlPort }}
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql_password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap
+                  key: mysql_database

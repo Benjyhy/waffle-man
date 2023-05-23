@@ -1,0 +1,14 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: amqp
+spec:
+  replicas: 1
+  resources:
+    {{- range $key, $value := .Values.amqp}}
+    {{- with $value }}
+    {{ $key }}:
+      cpu: {{ .cpu }}
+      memory: {{ .limits }}
+    {{- end }}
+    {{- end }}
