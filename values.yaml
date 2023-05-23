@@ -29,3 +29,5 @@ global:
     elasticsearchPort: "9200"
     elasticsearchScheme: http
     elasticsearchUser: elastic
+  amqp:
+    user: user
