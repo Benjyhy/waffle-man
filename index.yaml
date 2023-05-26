@@ -3,6 +3,16 @@ entries:
   back:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-05-26T08:59:17.437438093Z"
+    description: A Helm chart for the backend of the T-CLO-902 project
+    digest: e5d77f3903e357be7b332092ab159eeb5bbf4d68db726c917c0fc309e3ffb0d2
+    name: back
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/back-0.3.0/back-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-05-23T22:38:39.655782139Z"
     description: A Helm chart for the backend of the T-CLO-902 project
     digest: 26becd899f5774d19ff4d79c849f0139b3d68dcb56b52c500e9ea0bf287dce42
@@ -42,7 +52,28 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/front-0.1.0/front-0.1.0.tgz
     version: 0.1.0
+  index:
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2023-05-26T08:59:17.585969279Z"
+    description: A Helm chart for the indexer of T-CLO-902 Project
+    digest: 449ca55c3dba9a5e80adcca9f74aaa8137cbda763e5b372fed30f1d6941d298f
+    name: index
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/index-0.1.0/index-0.1.0.tgz
+    version: 0.1.0
   mysql:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-05-26T08:59:17.745051121Z"
+    description: A Helm chart for the MYSQL database T-CLO-902 project
+    digest: 0390a68e1db5f6df7a9e5260430ba6f074b79e7aecc0b9916d55483ed4ecc3f6
+    name: mysql
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/mysql-0.2.0/mysql-0.2.0.tgz
+    version: 0.2.0
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2023-05-23T22:38:39.817682832Z"
@@ -53,4 +84,4 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/mysql-0.1.0/mysql-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-23T22:38:39.817691832Z"
+generated: "2023-05-26T08:59:17.74507122Z"
