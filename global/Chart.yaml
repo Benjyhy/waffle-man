@@ -1,0 +1,9 @@
+apiVersion: v2
+name: global
+description: A Helm chart for global resources of the T-CLO-902 project
+
+type: application
+
+version: 0.1.0
+
+appVersion: "1.16.0"

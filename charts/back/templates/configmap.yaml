@@ -7,7 +7,6 @@ data:
   {{- if eq $key "hosts" }}
   {{- range $innerKey, $innerValue := .Values.configmap.hosts }}
   {{ $innerKey | snakecase | upper }}: {{ tpl $innerValue . }}
-  {{- end }}
   {{- else }}
   {{ $key | snakecase | upper }}: {{ $value }}
   {{ -end }}
