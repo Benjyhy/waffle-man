@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: { { include "t-clo-902.nameService" . } }
+  name: {{ .Release.Name }}-index-svc
 spec:
   selector:
-    app: { { include "t-clo-902.nameDeployment" . } }
+    app: {{ .Release.Name }}-index-dep
   type: ClusterIP
   ports:
     - port: { { .Values.index.port } }

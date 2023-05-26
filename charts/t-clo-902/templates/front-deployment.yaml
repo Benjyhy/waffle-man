@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "t-clo-902.nameDeployment" . }}
+  name: {{ .Release.Name }}-front-dep
   labels:
-    app: {{ include "t-clo-902.nameDeployment" . }}
+    app: {{ .Release.Name }}-front-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "t-clo-902.nameDeployment" . }}
+      app: {{ .Release.Name }}-front-dep
   template:
     metadata:
       labels:
-        app: {{ include "t-clo-902.nameDeployment" . }}
+        app: {{ .Release.Name }}-front-dep
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: {{ .Values.t-clo-902.ghcrRepo }}{{ .Chart.Name }}:latest
+          image: {{ .Values.ghcrRepo }}front:latest
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.front.port }}

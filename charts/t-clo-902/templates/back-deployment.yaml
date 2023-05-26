@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "t-clo-902.nameDeployment" . }}
+  name: {{ .Release.Name }}-back-dep
   labels:
-    app: {{ include "t-clo-902.nameDeployment" . }}
+    app: {{ .Release.Name }}-back-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "t-clo-902.nameDeployment" . }}
+      app: {{ .Release.Name }}-back-dep
   template:
     metadata:
       labels:
-        app: {{ include "t-clo-902.nameDeployment" . }}
+        app: {{ .Release.Name }}-back-dep
     spec:
       initContainers:
         - name: migrations
-          image: {{ .Values.t-clo-902.ghcrRepo }}{{ .Chart.Name }}:latest
+          image: {{ .Values.ghcrRepo }}back:latest
           command:
             - php
           args:
@@ -25,18 +25,18 @@ spec:
             - --force
           envFrom:
           - configMapRef:
-              name: {{ include "t-clo-902.nameConfigmap" . }}
+              name: {{ .Release.Name }}-back-cm
           - secretRef:
-              name: {{ include "t-clo-902.nameSecret" . }}
+              name: {{ .Release.Name }}-back-secret
       containers:
         - name: back
-          image: {{ .Values.t-clo-902.ghcrRepo }}{{ .Chart.Name }}:latest
+          image: {{ .Values.t-clo-902.ghcrRepo }}back:latest
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.back.laravelPort }}
           envFrom:
           - configMapRef:
-              name: {{ include "t-clo-902.nameConfigmap" . }}
+              name: {{ .Release.Name }}-back-cm
           - secretRef:
-              name: {{ include "t-clo-902.nameSecret" . }}
+              name: {{ .Release.Name }}-back-secret
       {{ include "t-clo-902.imagePullSecret" . }}
