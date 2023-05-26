@@ -22,7 +22,7 @@ ingressPaths:
   front:
     path: /
     serviceName: front-service
-    port: 80
+    port: "80"
   back:
     path: /api/
     serviceName: back-service

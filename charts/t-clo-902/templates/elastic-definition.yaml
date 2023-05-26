@@ -21,8 +21,8 @@ spec:
               {{- range $key, $value := .Values.elasticsearch}}
               {{- with $value }}
               {{ $key }}:
-                cpu: {{ .cpu }}
-                memory: {{ .limits }}
+                cpu: {{ .cpu | quote }}
+                memory: {{ .limits | quote }}
               {{- end }}
               {{- end }}
             storageClassName: standard
