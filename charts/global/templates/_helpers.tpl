@@ -1,4 +1,4 @@
-{{- define "ingressPathsConfig" -}}
+{{- define "global.ingressPathsConfig" -}}
 - path:  {{ .path }}
   pathType: Prefix
   backend:
@@ -8,23 +8,23 @@
        number: {{ .port }}
 {{- end }}
 
-{{- define "imagePullSecret" -}}
+{{- define "global.imagePullSecret" -}}
 imagePullSecrets:
   - name: ghcr-credentials
 {{- end }}
 
-{{- define "nameService" -}}
+{{- define "global.nameService" -}}
 {{ .Chart.Name }}-{{ .Release.Name }}-service
 {{- end }}
 
-{{- define "nameDeployment" -}}
+{{- define "global.nameDeployment" -}}
 {{ .Chart.Name }}-{{ .Release.Name }}-deployment
 {{- end }}
 
-{{- define "nameConfigmap" -}}
+{{- define "global.nameConfigmap" -}}
 {{ .Chart.Name }}-{{ .Release.Name }}-configmap
 {{- end }}
 
-{{- define "nameSecret" -}}
+{{- define "global.nameSecret" -}}
 {{ .Chart.Name }}-{{ .Release.Name }}-secret
 {{- end }}

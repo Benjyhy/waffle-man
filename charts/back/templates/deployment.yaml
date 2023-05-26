@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "nameDeployment" . }}
+  name: {{ include "global.nameDeployment" . }}
   labels:
-    app: {{ include "nameDeployment" . }}
+    app: {{ include "global.nameDeployment" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "nameDeployment" . }}
+      app: {{ include "global.nameDeployment" . }}
   template:
     metadata:
       labels:
-        app: {{ include "nameDeployment" . }}
+        app: {{ include "global.nameDeployment" . }}
     spec:
       initContainers:
         - name: migrations
@@ -25,9 +25,9 @@ spec:
             - --force
           envFrom:
           - configMapRef:
-              name: {{ include "nameConfigmap" . }}
+              name: {{ include "global.nameConfigmap" . }}
           - secretRef:
-              name: {{ include "nameSecret" . }}
+              name: {{ include "global.nameSecret" . }}
       containers:
         - name: back
           image: {{ .Values.global.ghcrRepo }}{{ .Chart.Name }}:latest
@@ -36,7 +36,7 @@ spec:
             - containerPort: {{ .Values.laravelPort }}
           envFrom:
           - configMapRef:
-              name: {{ include "nameConfigmap" . }}
+              name: {{ include "global.nameConfigmap" . }}
           - secretRef:
-              name: {{ include "nameSecret" . }}
-      {{ include "imagePullSecret" . }}
+              name: {{ include "global.nameSecret" . }}
+      {{ include "global.imagePullSecret" . }}

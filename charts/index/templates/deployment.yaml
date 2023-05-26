@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "nameDeployment" . }}
+  name: {{ include "global.nameDeployment" . }}
   labels:
-    app: {{ include "nameDeployment" . }}
+    app: {{ include "global.nameDeployment" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "nameDeployment" . }}
+      app: {{ include "global.nameDeployment" . }}
   template:
     metadata:
       labels:
-        app: {{ include "nameDeployment" . }}
+        app: {{ include "global.nameDeployment" . }}
     spec:
       containers:
-        - name: {{ include "nameDeployment" . }}
+        - name: {{ include "global.nameDeployment" . }}
           image: {{ .Values.global.ghcrRepo }}{{ .Chart.Name }}:latest
           imagePullPolicy: Always
           ports:
@@ -24,11 +24,11 @@ spec:
             - name: ELASTICSEARCH_URI
               valueFrom:
                 secretKeyRef:
-                  name: { { include "nameSecret" . } }
+                  name: { { include "global.nameSecret" . } }
                   key: eck_uri
             - name: AMQP_URI
               valueFrom:
                 secretKeyRef:
-                  name: { { include "nameSecret" . } }
+                  name: { { include "global.nameSecret" . } }
                   key: amqp_uri
-      {{ include "imagePullSecret" . }}
+      {{ include "global.imagePullSecret" . }}

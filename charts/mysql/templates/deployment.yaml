@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "nameDeployment" . }}
+  name: {{ include "global.nameDeployment" . }}
   labels:
-    app: {{ include "nameDeployment" . }}
+    app: {{ include "global.nameDeployment" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "nameDeployment" . }}
+      app: {{ include "global.nameDeployment" . }}
   template:
     metadata:
       labels:
-        app: {{ include "nameDeployment" . }}
+        app: {{ include "global.nameDeployment" . }}
     spec:
       containers:
         - name: {{ .Chart.Name }}-{{ .Release.Name }}

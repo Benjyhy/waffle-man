@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: { { include "nameConfigmap" . } }
+  name: { { include "global.nameConfigmap" . } }
 data:
   mysql_database: { { .Values.global.mysql.mysqlDbName } }
