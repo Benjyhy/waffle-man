@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-back-cm
 data:
-{{- with .Values.back.configmap.hosts }}
+  {{- with .Values.back.configmap.hosts }}
   RABBITMQ_HOST: {{ .rabbitmqHost }}
   DB_HOST: {{ .dbHost }}
-{{- end }}
-{{- with .Values.back.configmap }}
+  {{- end }}
+  {{- with .Values.back.configmap }}
   APP_NAME: {{ .appName }}
   APP_ENV: {{ .appEnv }}
   APP_KEY: {{ .appKey }}
@@ -24,10 +24,10 @@ data:
   SESSION_LIFETIME: {{ .sessionLifetime }}
   RABBITMQ_PORT: {{ .rabbitmqPort }}
   RABBITMQ_VHOST: {{ .rabbitmqVhost }}
-{{- end }}
-{{- with .Values.elasticsearch }}
+  {{- end }}
+  {{- with .Values.elasticsearch }}
   ELASTICSEARCH_HOST: {{ .elasticsearchHost }}
   ELASTICSEARCH_PORT: {{ .elasticsearchPort }}
   ELASTICSEARCH_SCHEME: {{ .elasticsearchScheme }}
   ELASTICSEARCH_USER: {{ .elasticsearchUser }}
-{{- end }}
+  {{- end }}
