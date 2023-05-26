@@ -12,12 +12,17 @@ amqp:
     cpu: 800m
     memory: 1Gi
 elasticsearch:
-  requests:
-    cpu: 5Gi
-    memory: 5Gi
-  limits:
-    cpu: 5Gi
-    memory: 1Gi
+  resources:
+    requests:
+      cpu: 5Gi
+      memory: 5Gi
+    limits:
+      cpu: 5Gi
+      memory: 1Gi
+  elasticsearchHost: elasticsearch-es-http
+  elasticsearchPort: "9200"
+  elasticsearchScheme: http
+  elasticsearchUser: elastic
 ingressPaths:
   front:
     path: /
@@ -28,11 +33,6 @@ ingressPaths:
     serviceName: back-service
     port: "6001"
 ghcrRepo: ghcr.io/benjyhy/
-elasticsearch:
-  elasticsearchHost: elasticsearch-es-http
-  elasticsearchPort: "9200"
-  elasticsearchScheme: http
-  elasticsearchUser: elastic
 amqp:
   user: user
   port: "5672"

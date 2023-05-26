@@ -18,8 +18,8 @@ spec:
             accessModes:
               - ReadWriteOnce
             resources:
-              {{- range $key, $value := .Values.elasticsearch}}
-              {{- with .Values.elasticsearch.$value }}
+              {{- range $key, $value := .Values.elasticsearch.resources}}
+              {{- with $value }}
               {{ $key }}:
                 cpu: {{ .cpu }}
                 memory: {{ .limits }}
