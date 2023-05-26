@@ -11,6 +11,12 @@ spec:
       paths:
         {{- range $key, $value := .Values.ingressPaths }}
         {{- with $value }}
-        {{ include "t-clo-902.ingressPathsConfig" . }}
+        - path: {{ .path }}
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .serviceName }}
+              port:
+              number: {{ .port }}
         {{- end }}
         {{- end }}
