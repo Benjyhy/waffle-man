@@ -3,6 +3,16 @@ entries:
   back:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-05-26T09:22:46.614306744Z"
+    description: A Helm chart for the backend of the T-CLO-902 project
+    digest: 43a890c8abccf4fa555f4cc95c41b364cd8df2fc5bb0aa84aae5aa24c36ba0ac
+    name: back
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/back-0.5.0/back-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-05-26T09:17:14.921958921Z"
     description: A Helm chart for the backend of the T-CLO-902 project
     digest: 0f351b4c9ca7e406a2f35c4768256b527baf4188582b1793f59cdb2fe45e9749
@@ -94,4 +104,4 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/mysql-0.1.0/mysql-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-26T09:17:14.921976522Z"
+generated: "2023-05-26T09:22:46.614336845Z"
