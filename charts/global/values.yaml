@@ -1,4 +1,9 @@
 dockerConfigJson: eyJhdXRocyI6eyJodHRwczovL2doY3IuaW8iOnsidXNlcm5hbWUiOiJiZW5qeWh5IiwicGFzc3dvcmQiOiJnaHBfd0VaUmJZdnVoVmNmOGJOTDNOZE1YaXREOTdaV3RTMTltMHFTIiwiZW1haWwiOiJyYW1ldC5iZW5qQGdtYWlsLmNvbSIsImF1dGgiOiJZbVZ1YW5sb2VUcG5hSEJmZDBWYVVtSlpkblZvVm1ObU9HSk9URE5PWkUxWWFYUkVPVGRhVjNSVE1UbHRNSEZUIn19fQ==
+imageCredentials:
+  registry: ghcr.io/benjyhy/
+  username: Benjyhy
+  password: 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
+  email: ramet.benj@gmail.com
 amqp:
   requests:
     cpu: 500m
