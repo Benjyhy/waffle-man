@@ -1,1 +1,1 @@
-You've installed the T-CLO-902 Project
+You've deployed global resources for the T-CLO-902 Project

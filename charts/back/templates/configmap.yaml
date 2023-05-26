@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Chart.Name }}-{{ .Release.Name }}-configmap
+  name: {{ include "t-clo-902.nameConfigmap" . }}
 data:
 {{- range $key, $value := .Values.configmap }}
   {{- if eq $key "hosts" }}
@@ -9,7 +9,7 @@ data:
   {{ $innerKey | snakecase | upper }}: {{ tpl $innerValue . }}
   {{- else }}
   {{ $key | snakecase | upper }}: {{ $value }}
-  {{ -end }}
+  {{- end }}
 {{- end }}
 {{- range $key, $value := .Values.global.elasticsearch }}
   {{ $key | snakecase | upper }}: {{ $value }}
