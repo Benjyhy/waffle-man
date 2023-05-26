@@ -3,15 +3,31 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-back-cm
 data:
-{{- range $key, $value := .Values.back.configmap }}
-  {{- if eq $key "hosts" }}
-  {{- range $innerKey, $innerValue := .Values.back.configmap.hosts }}
-  {{ $innerKey | snakecase | upper }}: {{ tpl $innerValue . }}
-  {{- end }}
-  {{- else }}
-  {{ $key | snakecase | upper }}: {{ $value }}
-  {{- end }}
+{{- with .Values.back.configmap.hosts }}
+  RABBITMQ_HOST: {{ .rabbitmqHost }}
+  DB_HOST: {{ .dbHost }}
 {{- end }}
-{{- range $key, $value := .Values.elasticsearch }}
-  {{ $key | snakecase | upper }}: {{ $value }}
+{{- with .Values.back.configmap }}
+  APP_NAME: {{ .appName }}
+  APP_ENV: {{ .appEnv }}
+  APP_KEY: {{ .appKey }}
+  APP_DEBUG: {{ .appDebug }}
+  APP_URL: {{ .appUrl }}
+  LOG_CHANNEL: {{ .logChannel }}
+  DB_CONNECTION: {{ .dbConnection }}
+  DB_PORT: {{ .dbPort }}
+  DB_DATABASE: {{ .dbDatabase }}
+  BROADCAST_DRIVER: {{ .broadcastDriver }}
+  CACHE_DRIVER: {{ .cacheDriver }}
+  QUEUE_CONNECTION: {{ .queueConnection }}
+  SESSION_DRIVER: {{ .sessionDriver }}
+  SESSION_LIFETIME: {{ .sessionLifetime }}
+  RABBITMQ_PORT: {{ .rabbitmqPort }}
+  RABBITMQ_VHOST: {{ .rabbitmqVhost }}
+{{- end }}
+{{- with .Values.elasticsearch }}
+  ELASTICSEARCH_HOST: {{ .elasticsearchHost }}
+  ELASTICSEARCH_PORT: {{ .elasticsearchPort }}
+  ELASTICSEARCH_SCHEME: {{ .elasticsearchScheme }}
+  ELASTICSEARCH_USER: {{ .elasticsearchUser }}
 {{- end }}
