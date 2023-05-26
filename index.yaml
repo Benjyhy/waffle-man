@@ -75,6 +75,16 @@ entries:
   global:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-05-26T10:30:42.002976447Z"
+    description: A Helm chart to sell cats on Kubernetes
+    digest: 7226795bb1ced78a3f87d08675248c169ad82d78107e43c495563b6ac1e4897e
+    name: global
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/global-0.4.0/global-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-05-26T10:11:45.692050068Z"
     description: A Helm chart to sell cats on Kubernetes
     digest: b7e1778206a4dd3bc239ec49438722ec35eb763055b076ebe84ed7ce4dd18ccd
@@ -135,4 +145,4 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/mysql-0.1.0/mysql-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-26T10:11:45.692077069Z"
+generated: "2023-05-26T10:30:42.002998147Z"
