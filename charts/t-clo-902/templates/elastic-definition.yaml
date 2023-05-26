@@ -19,10 +19,10 @@ spec:
               - ReadWriteOnce
             resources:
               {{- range $key, $value := .Values.elasticsearch}}
-              {{- with $value }}
+              {{- with .Values.elasticsearch.$value }}
               {{ $key }}:
-                cpu: {{ .cpu | quote }}
-                memory: {{ .limits | quote }}
+                cpu: {{ .cpu }}
+                memory: {{ .limits }}
               {{- end }}
               {{- end }}
             storageClassName: standard
