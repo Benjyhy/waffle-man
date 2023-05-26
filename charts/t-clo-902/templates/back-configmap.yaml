@@ -11,6 +11,6 @@ data:
   {{ $key | snakecase | upper }}: {{ $value }}
   {{- end }}
 {{- end }}
-{{- range $key, $value := .Values.t-clo-902.elasticsearch }}
+{{- range $key, $value := .Values.elasticsearch }}
   {{ $key | snakecase | upper }}: {{ $value }}
 {{- end }}
