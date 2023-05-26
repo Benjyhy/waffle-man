@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}-{{ .Release.Name }}
-          image: mysql:{{. Values.t-clo-902.mysql.mysqlImageVersion }}
+          image: mysql:{{ .Values.mysql.mysqlImageVersion }}
           ports:
-            - containerPort: {{ .Values.t-clo-902.mysql.mysqlPort }}
+            - containerPort: {{ .Values.mysql.mysqlPort }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
