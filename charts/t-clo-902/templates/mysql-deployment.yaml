@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "global.nameDeployment" . }}
+  name: {{ include "t-clo-902.nameDeployment" . }}
   labels:
-    app: {{ include "global.nameDeployment" . }}
+    app: {{ include "t-clo-902.nameDeployment" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "global.nameDeployment" . }}
+      app: {{ include "t-clo-902.nameDeployment" . }}
   template:
     metadata:
       labels:
-        app: {{ include "global.nameDeployment" . }}
+        app: {{ include "t-clo-902.nameDeployment" . }}
     spec:
       containers:
         - name: {{ .Chart.Name }}-{{ .Release.Name }}
-          image: mysql:{{. Values.global.mysql.mysqlImageVersion }}
+          image: mysql:{{. Values.t-clo-902.mysql.mysqlImageVersion }}
           ports:
-            - containerPort: {{ .Values.global.mysql.mysqlPort }}
+            - containerPort: {{ .Values.t-clo-902.mysql.mysqlPort }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:

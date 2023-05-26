@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "global.nameConfigmap" . }}
+  name: {{ include "t-clo-902.nameConfigmap" . }}
 data:
-{{- range $key, $value := .Values.configmap }}
+{{- range $key, $value := .Values.back.configmap }}
   {{- if eq $key "hosts" }}
-  {{- range $innerKey, $innerValue := .Values.configmap.hosts }}
+  {{- range $innerKey, $innerValue := .Values.back.configmap.hosts }}
   {{ $innerKey | snakecase | upper }}: {{ tpl $innerValue . }}
   {{- else }}
   {{ $key | snakecase | upper }}: {{ $value }}
   {{- end }}
 {{- end }}
-{{- range $key, $value := .Values.global.elasticsearch }}
+{{- range $key, $value := .Values.t-clo-902.elasticsearch }}
   {{ $key | snakecase | upper }}: {{ $value }}
 {{- end }}

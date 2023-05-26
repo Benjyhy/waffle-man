@@ -14,17 +14,17 @@ imagePullSecrets:
 {{- end }}
 
 {{- define "t-clo-902.nameService" -}}
-{{ .Chart.Name }}-{{ .Release.Name }}-service
+{{ .Release.Name }}-service
 {{- end }}
 
 {{- define "t-clo-902.nameDeployment" -}}
-{{ .Chart.Name }}-{{ .Release.Name }}-deployment
+{{ .Release.Name }}-deployment
 {{- end }}
 
 {{- define "t-clo-902.nameConfigmap" -}}
-{{ .Chart.Name }}-{{ .Release.Name }}-configmap
+{{ .Release.Name }}-configmap
 {{- end }}
 
 {{- define "t-clo-902.nameSecret" -}}
-{{ .Chart.Name }}-{{ .Release.Name }}-secret
+{{ .Release.Name }}-secret
 {{- end }}

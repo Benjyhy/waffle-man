@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "t-clo-902.nameDeployment" . }}
+  labels:
+    app: {{ include "t-clo-902.nameDeployment" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "t-clo-902.nameDeployment" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "t-clo-902.nameDeployment" . }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.t-clo-902.ghcrRepo }}{{ .Chart.Name }}:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.front.port }}
+      {{ include "t-clo-902.imagePullSecret" . }}

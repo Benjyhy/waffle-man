@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: { { include "t-clo-902.nameService" . } }
+spec:
+  selector:
+    app: { { include "t-clo-902.nameDeployment" . } }
+  type: ClusterIP
+  ports:
+    - port: { { .Values.index.port } }
+      targetPort: { { .Values.index.port } }
+      protocol: TCP

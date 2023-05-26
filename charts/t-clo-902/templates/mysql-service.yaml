@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "global.nameService" . }}
+  name: {{ include "t-clo-902.nameService" . }}
 spec:
   selector:
     app: {{ .Chart.Name }}-{{ .Release.Name }}-deployment
   ports:
     - protocol: TCP
-      {{- with .Values.global.mysql}}
+      {{- with .Values.t-clo-902.mysql}}
       port: {{ .mysqlPort }}
       target: {{ .mysqlPort }}
       {{- end }}
