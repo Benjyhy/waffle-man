@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: { { include "t-clo-902.nameConfigmap" . } }
 data:
-  mysql_database: { { .Values.exports.mysql.mysqlDbName } }
+  mysql_database: { { .Values.global.mysql.mysqlDbName } }

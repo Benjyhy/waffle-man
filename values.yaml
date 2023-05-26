@@ -31,3 +31,10 @@ global:
     elasticsearchUser: elastic
   amqp:
     user: user
+    port: "5672"
+  mysql:
+    mysqlImageVersion: 8
+    mysqlPassword: saltyproject
+    mysqlPort: "3306"
+    mysqlDbName: shop
+    mysqlUser: root

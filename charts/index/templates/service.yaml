@@ -7,6 +7,6 @@ spec:
     app: { { include "t-clo-902.nameDeployment" . } }
   type: ClusterIP
   ports:
-    - port: { { .Values.laravelPort } }
-      targetPort: { { .Values.laravelPort } }
+    - port: { { .Values.port } }
+      targetPort: { { .Values.port } }
       protocol: TCP

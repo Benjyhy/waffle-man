@@ -7,7 +7,7 @@ spec:
     app: {{ .Chart.Name }}-{{ .Release.Name }}-deployment
   ports:
     - protocol: TCP
-      {{- with .Values.exports.mysql}}
+      {{- with .Values.global.mysql}}
       port: {{ .mysqlPort }}
       target: {{ .mysqlPort }}
       {{- end }}
