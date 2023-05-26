@@ -358,6 +358,16 @@ entries:
   t-clo-902:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2023-05-26T13:52:39.906850513Z"
+    description: A Helm chart to sell cats on Kubernetes
+    digest: 3ae331e5a4b06b17e3ae136d7bf0e07c48665426e4fef6ba5fed67daa9fbe871
+    name: t-clo-902
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/t-clo-902-0.3.0/t-clo-902-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2023-05-26T13:49:27.881912394Z"
     description: A Helm chart to sell cats on Kubernetes
     digest: 3b448163915664411bce92c6bd16f0063ead04b21dab4036636b5fc72c05c164
@@ -376,4 +386,4 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/t-clo-902-0.1.0/t-clo-902-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-26T13:49:27.881984494Z"
+generated: "2023-05-26T13:52:39.906915014Z"
