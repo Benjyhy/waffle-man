@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "t-clo-902.nameDeployment" . }}
+  name: {{ include "nameDeployment" . }}
   labels:
-    app: {{ include "t-clo-902.nameDeployment" . }}
+    app: {{ include "nameDeployment" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "t-clo-902.nameDeployment" . }}
+      app: {{ include "nameDeployment" . }}
   template:
     metadata:
       labels:
-        app: {{ include "t-clo-902.nameDeployment" . }}
+        app: {{ include "nameDeployment" . }}
     spec:
       containers:
-        - name: {{ include "t-clo-902.nameDeployment" . }}
+        - name: {{ include "nameDeployment" . }}
           image: {{ .Values.global.ghcrRepo }}{{ .Chart.Name }}:latest
           imagePullPolicy: Always
           ports:
@@ -24,11 +24,11 @@ spec:
             - name: ELASTICSEARCH_URI
               valueFrom:
                 secretKeyRef:
-                  name: { { include "t-clo-902.nameSecret" . } }
+                  name: { { include "nameSecret" . } }
                   key: eck_uri
             - name: AMQP_URI
               valueFrom:
                 secretKeyRef:
-                  name: { { include "t-clo-902.nameSecret" . } }
+                  name: { { include "nameSecret" . } }
                   key: amqp_uri
-      {{ include "t-clo-902.imagePullSecret" . }}
+      {{ include "imagePullSecret" . }}

@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "t-clo-902.nameDeployment" . }}
+  name: {{ include "nameDeployment" . }}
   labels:
-    app: {{ include "t-clo-902.nameDeployment" . }}
+    app: {{ include "nameDeployment" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "t-clo-902.nameDeployment" . }}
+      app: {{ include "nameDeployment" . }}
   template:
     metadata:
       labels:
-        app: {{ include "t-clo-902.nameDeployment" . }}
+        app: {{ include "nameDeployment" . }}
     spec:
       initContainers:
         - name: migrations
@@ -25,9 +25,9 @@ spec:
             - --force
           envFrom:
           - configMapRef:
-              name: {{ include "t-clo-902.nameConfigmap" . }}
+              name: {{ include "nameConfigmap" . }}
           - secretRef:
-              name: {{ include "t-clo-902.nameSecret" . }}
+              name: {{ include "nameSecret" . }}
       containers:
         - name: back
           image: {{ .Values.global.ghcrRepo }}{{ .Chart.Name }}:latest
@@ -36,7 +36,7 @@ spec:
             - containerPort: {{ .Values.laravelPort }}
           envFrom:
           - configMapRef:
-              name: {{ include "t-clo-902.nameConfigmap" . }}
+              name: {{ include "nameConfigmap" . }}
           - secretRef:
-              name: {{ include "t-clo-902.nameSecret" . }}
-      {{ include "t-clo-902.imagePullSecret" . }}
+              name: {{ include "nameSecret" . }}
+      {{ include "imagePullSecret" . }}

@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "t-clo-902.nameDeployment" . }}
+  name: {{ include "nameDeployment" . }}
   labels:
-    app: {{ include "t-clo-902.nameDeployment" . }}
+    app: {{ include "nameDeployment" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "t-clo-902.nameDeployment" . }}
+      app: {{ include "nameDeployment" . }}
   template:
     metadata:
       labels:
-        app: {{ include "t-clo-902.nameDeployment" . }}
+        app: {{ include "nameDeployment" . }}
     spec:
       containers:
         - name: {{ .Chart.Name }}-{{ .Release.Name }}

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "t-clo-902.nameService" . }}
+  name: {{ include "nameService" . }}
 spec:
   selector:
     app: {{ .Chart.Name }}-{{ .Release.Name }}-deployment
