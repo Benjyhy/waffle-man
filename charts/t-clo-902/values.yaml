@@ -65,7 +65,7 @@ back:
     rabbitmqVhost: /
     hosts:
       rabbitmqHost: my-release-rabbitmq
-      dbHost: "{{ .Release.Name }}-mysql-svc"
+      dbHost: sprout-mysql-svc
 index:
   replicaCount: 1
   port: "9229"
