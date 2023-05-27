@@ -4,30 +4,30 @@ metadata:
   name: {{ .Release.Name }}-back-cm
 data:
   {{- with .Values.back.configmap.hosts }}
-  RABBITMQ_HOST: {{ .rabbitmqHost }}
-  DB_HOST: {{ .dbHost }}
+  RABBITMQ_HOST: {{ .rabbitmqHost | quote }}
+  DB_HOST: {{ .dbHost | quote }}
   {{- end }}
   {{- with .Values.back.configmap }}
-  APP_NAME: {{ .appName }}
-  APP_ENV: {{ .appEnv }}
-  APP_KEY: {{ .appKey }}
+  APP_NAME: {{ .appName | quote }}
+  APP_ENV: {{ .appEnv | quote }}
+  APP_KEY: {{ .appKey | quote }}
   APP_DEBUG: {{ .appDebug | quote }}
-  APP_URL: {{ .appUrl }}
-  LOG_CHANNEL: {{ .logChannel }}
-  DB_CONNECTION: {{ .dbConnection }}
-  DB_PORT: {{ .dbPort }}
-  DB_DATABASE: {{ .dbDatabase }}
-  BROADCAST_DRIVER: {{ .broadcastDriver }}
-  CACHE_DRIVER: {{ .cacheDriver }}
-  QUEUE_CONNECTION: {{ .queueConnection }}
-  SESSION_DRIVER: {{ .sessionDriver }}
-  SESSION_LIFETIME: {{ .sessionLifetime }}
-  RABBITMQ_PORT: {{ .rabbitmqPort }}
-  RABBITMQ_VHOST: {{ .rabbitmqVhost }}
+  APP_URL: {{ .appUrl | quote }}
+  LOG_CHANNEL: {{ .logChannel | quote }}
+  DB_CONNECTION: {{ .dbConnection | quote }}
+  DB_PORT: {{ .dbPort | quote }}
+  DB_DATABASE: {{ .dbDatabase | quote }}
+  BROADCAST_DRIVER: {{ .broadcastDriver | quote }}
+  CACHE_DRIVER: {{ .cacheDriver | quote }}
+  QUEUE_CONNECTION: {{ .queueConnection | quote }}
+  SESSION_DRIVER: {{ .sessionDriver | quote }}
+  SESSION_LIFETIME: {{ .sessionLifetime | quote }}
+  RABBITMQ_PORT: {{ .rabbitmqPort | quote }}
+  RABBITMQ_VHOST: {{ .rabbitmqVhost | quote }}
   {{- end }}
   {{- with .Values.elasticsearch }}
-  ELASTICSEARCH_HOST: {{ .elasticsearchHost }}
-  ELASTICSEARCH_PORT: {{ .elasticsearchPort }}
-  ELASTICSEARCH_SCHEME: {{ .elasticsearchScheme }}
-  ELASTICSEARCH_USER: {{ .elasticsearchUser }}
+  ELASTICSEARCH_HOST: {{ .elasticsearchHost | quote }}
+  ELASTICSEARCH_PORT: {{ .elasticsearchPort | quote }}
+  ELASTICSEARCH_SCHEME: {{ .elasticsearchScheme | quote }}
+  ELASTICSEARCH_USER: {{ .elasticsearchUser | quote }}
   {{- end }}
