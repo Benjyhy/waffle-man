@@ -20,4 +20,5 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.front.port }}
-      {{ include "t-clo-902.imagePullSecret" . }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecret }}

@@ -39,4 +39,5 @@ spec:
               name: {{ .Release.Name }}-back-cm
           - secretRef:
               name: {{ .Release.Name }}-back-secret
-      {{ include "t-clo-902.imagePullSecret" . }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecret }}

@@ -31,4 +31,5 @@ spec:
                 secretKeyRef:
                   name: {{ .Release.Name }}-index-secret
                   key: amqp_uri
-      {{ include "t-clo-902.imagePullSecret" . }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecret }}

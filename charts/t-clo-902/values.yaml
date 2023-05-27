@@ -4,6 +4,7 @@ imageCredentials:
   username: Benjyhy
   password: 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
   email: ramet.benj@gmail.com
+imagePullSecret: ghcr-credentials
 amqp:
   requests:
     cpu: 500m
