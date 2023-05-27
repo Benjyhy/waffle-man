@@ -51,7 +51,7 @@ back:
     appName: Laravel
     appEnv: production
     appKey: base64:h55oToUypq1BJwhcBAbtCnKscJGGS7xXF3zoDNf/yWE=
-    appDebug: "true"
+    appDebug: true
     appUrl: http://myshoppp.dev.com
     logChannel: stderr
     dbConnection: mysql

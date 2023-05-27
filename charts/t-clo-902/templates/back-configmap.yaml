@@ -11,7 +11,7 @@ data:
   APP_NAME: {{ .appName }}
   APP_ENV: {{ .appEnv }}
   APP_KEY: {{ .appKey }}
-  APP_DEBUG: {{ .appDebug }}
+  APP_DEBUG: {{ .appDebug | quote }}
   APP_URL: {{ .appUrl }}
   LOG_CHANNEL: {{ .logChannel }}
   DB_CONNECTION: {{ .dbConnection }}
