@@ -64,7 +64,7 @@ back:
     rabbitmqPort: "5672"
     rabbitmqVhost: /
     hosts:
-      rabbitmqHost: "my-release-rabbitmq"
+      rabbitmqHost: my-release-rabbitmq
       dbHost: "{{ .Release.Name }}-mysql-svc"
 index:
   replicaCount: 1

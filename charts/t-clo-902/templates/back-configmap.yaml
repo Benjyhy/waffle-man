@@ -5,7 +5,7 @@ metadata:
 data:
   {{- with .Values.back.configmap.hosts }}
   RABBITMQ_HOST: {{ .rabbitmqHost }}
-  DB_HOST: {{ .dbHost }}
+  DB_HOST: {{ tpl .dbHost }}
   {{- end }}
   {{- with .Values.back.configmap }}
   APP_NAME: {{ .appName }}
