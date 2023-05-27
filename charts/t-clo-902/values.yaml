@@ -38,11 +38,11 @@ amqp:
   user: user
   port: "5672"
 mysql:
-  mysqlImageVersion: 8
-  mysqlPassword: saltyproject
-  mysqlPort: "3306"
-  mysqlDbName: shop
-  mysqlUser: root
+  imageVersion: 8
+  password: saltyproject
+  port: "3306"
+  dbName: shop
+  user: root
 front:
   port: "80"
 back:
