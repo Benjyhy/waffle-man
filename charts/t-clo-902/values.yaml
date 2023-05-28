@@ -5,21 +5,7 @@ imageCredentials:
   password: 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
   email: ramet.benj@gmail.com
 imagePullSecret: ghcr-credentials
-amqp:
-  requests:
-    cpu: 500m
-    memory: 1Gi
-  limits:
-    cpu: 800m
-    memory: 1Gi
 elasticsearch:
-  resources:
-    requests:
-      cpu: 5Gi
-      memory: 5Gi
-    limits:
-      cpu: 5Gi
-      memory: 1Gi
   elasticsearchHost: "elasticsearch-{{ .Release.Name }}-es-http"
   elasticsearchPort: "9200"
   elasticsearchScheme: http
