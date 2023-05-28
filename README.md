@@ -5,7 +5,7 @@ kubectl create secret docker-registry ghcr-credentials --docker-server=https://g
 ```
 
 ```
-helm install my-release oci://registry-1.docker.io/bitnamicharts/rabbitmq
+helm install amqp-sprout oci://registry-1.docker.io/bitnamicharts/rabbitmq
 ```
 
 ```
