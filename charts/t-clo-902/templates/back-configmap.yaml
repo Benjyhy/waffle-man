@@ -3,10 +3,8 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-back-cm
 data:
-  {{- with .Values.back.configmap.hosts }}
   RABBITMQ_HOST: {{ include "t-clo-902.amqpHost" . }}
   DB_HOST: {{ include "t-clo-902.dbHost" . }}
-  {{- end }}
   {{- with .Values.back.configmap }}
   APP_NAME: {{ .appName | quote }}
   APP_ENV: {{ .appEnv | quote }}
@@ -25,8 +23,8 @@ data:
   RABBITMQ_PORT: {{ .rabbitmqPort | quote }}
   RABBITMQ_VHOST: {{ .rabbitmqVhost | quote }}
   {{- end }}
-  {{- with .Values.elasticsearch }}
   ELASTICSEARCH_HOST: {{ include "t-clo-902.esHost" . }}
+  {{- with .Values.elasticsearch }}
   ELASTICSEARCH_PORT: {{ .elasticsearchPort | quote }}
   ELASTICSEARCH_SCHEME: {{ .elasticsearchScheme | quote }}
   ELASTICSEARCH_USER: {{ .elasticsearchUser | quote }}
