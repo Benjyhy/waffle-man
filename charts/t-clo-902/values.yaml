@@ -20,7 +20,7 @@ elasticsearch:
     limits:
       cpu: 5Gi
       memory: 1Gi
-  elasticsearchHost: elasticsearch-es-http
+  elasticsearchHost: "elasticsearch-{{ .Release.Name }}-es-http"
   elasticsearchPort: "9200"
   elasticsearchScheme: http
   elasticsearchUser: elastic
@@ -65,8 +65,8 @@ back:
     rabbitmqPort: "5672"
     rabbitmqVhost: /
     hosts:
-      rabbitmqHost: my-release-rabbitmq
-      dbHost: sprout-mysql-svc
+      rabbitmqHost: "amqp-{{ .Release.Name }}-rabbitmq"
+      dbHost: "{{ .Release.Name }}-mysql-svc"
 index:
   replicaCount: 1
   port: "9229"

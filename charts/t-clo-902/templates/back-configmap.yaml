@@ -4,8 +4,8 @@ metadata:
   name: {{ .Release.Name }}-back-cm
 data:
   {{- with .Values.back.configmap.hosts }}
-  RABBITMQ_HOST: {{ .rabbitmqHost | quote }}
-  DB_HOST: {{ .dbHost }}
+  RABBITMQ_HOST: {{ tpl .rabbitmqHost . | quote }}
+  DB_HOST: {{ tpl .dbHost . }}
   {{- end }}
   {{- with .Values.back.configmap }}
   APP_NAME: {{ .appName | quote }}
@@ -26,7 +26,7 @@ data:
   RABBITMQ_VHOST: {{ .rabbitmqVhost | quote }}
   {{- end }}
   {{- with .Values.elasticsearch }}
-  ELASTICSEARCH_HOST: {{ .elasticsearchHost | quote }}
+  ELASTICSEARCH_HOST: {{ tpl .elasticsearchHost . | quote }}
   ELASTICSEARCH_PORT: {{ .elasticsearchPort | quote }}
   ELASTICSEARCH_SCHEME: {{ .elasticsearchScheme | quote }}
   ELASTICSEARCH_USER: {{ .elasticsearchUser | quote }}
