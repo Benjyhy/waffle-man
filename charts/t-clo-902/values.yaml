@@ -13,11 +13,9 @@ elasticsearch:
 ingressPaths:
   front:
     path: /
-    serviceName: "{{ .Release.Name }}-front-svc"
     port: "80"
   back:
     path: /api/
-    serviceName: "{{ .Release.Name }}-back-svc"
     port: "6001"
 ghcrRepo: ghcr.io/benjyhy/
 amqp:
