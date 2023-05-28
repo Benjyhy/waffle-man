@@ -30,11 +30,11 @@ imagePullSecrets:
 {{- end }}
 
 {{- define "t-clo-902.esHost" -}}
-{{ elasticsearch-{{ .Release.Name }}-es-http }}
+elasticsearch-{{ .Release.Name }}-es-http
 {{- end }}
 
 {{- define "t-clo-902.amqpHost" -}}
-{{ amqp-{{ .Release.Name }}-rabbitmq }}
+amqp-{{ .Release.Name }}-rabbitmq
 {{- end }}
 
 {{- define "t-clo-902.dbHost" -}}
