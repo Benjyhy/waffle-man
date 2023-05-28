@@ -28,3 +28,15 @@ imagePullSecrets:
 {{- define "t-clo-902.nameSecret" -}}
 {{ .Release.Name }}-secret
 {{- end }}
+
+{{- define "t-clo-902.esHost" -}}
+{{ elasticsearch-{{ .Release.Name }}-es-http }}
+{{- end }}
+
+{{- define "t-clo-902.amqpHost" -}}
+{{ amqp-{{ .Release.Name }}-rabbitmq }}
+{{- end }}
+
+{{- define "t-clo-902.dbHost" -}}
+{{ .Release.Name }}-mysql-svc
+{{- end }}
