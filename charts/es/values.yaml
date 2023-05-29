@@ -1,10 +1,4 @@
 elasticsearch:
   nodes: 2
-  version: 8.7.0
-  resources:
-    requests:
-      cpu: 5Gi
-      memory: 5Gi
-    limits:
-      cpu: 5Gi
-      memory: 1Gi
+  version: 8.8.0
+  mmap: false

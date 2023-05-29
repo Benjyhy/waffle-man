@@ -4,25 +4,8 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   version: {{ .Values.elasticsearch.version }}
-  http:
-    tls:
-      selfSignedCertificate:
-        disabled: true
   nodeSets:
     - name: default
       count: {{ .Values.elasticsearch.nodes }}
-      volumeClaimTemplates:
-        - metadata:
-            name: elasticsearch-data
-          spec:
-            accessModes:
-              - ReadWriteOnce
-            resources:
-              {{- range $key, $value := .Values.elasticsearch.resources}}
-              {{- with $value }}
-              {{ $key }}:
-                cpu: {{ .cpu }}
-                memory: {{ .limits }}
-              {{- end }}
-              {{- end }}
-            storageClassName: standard
+      config:
+        node.store.allow_mmap: {{ .Values.elasticsearch.mmap }}
