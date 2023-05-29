@@ -84,6 +84,16 @@ entries:
   es:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-05-29T10:05:11.632855412Z"
+    description: A Helm chart to deploy Elasticsearch from CRD for T-CLO-902
+    digest: 65f476cad9f42a2c7218258214385857a124e7c0083db45f0623b41fd3e88aa1
+    name: es
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/es-0.3.0/es-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-05-28T13:59:03.089816296Z"
     description: A Helm chart to deploy Elasticsearch from CRD for T-CLO-902
     digest: 93631d6a29ae41048d32dd7465d22bcf3ca6bf52649c74840b011ae872e6d132
@@ -877,4 +887,4 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/t-clo-902-0.1.0/t-clo-902-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-28T22:36:59.0180247Z"
+generated: "2023-05-29T10:05:11.633052222Z"
