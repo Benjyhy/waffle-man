@@ -9,5 +9,5 @@ spec:
     - protocol: TCP
       {{- with .Values.mysql}}
       port: {{ .port }}
-      target: {{ .port }}
+      targetPort: {{ .port }}
       {{- end }}
