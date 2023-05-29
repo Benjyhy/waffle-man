@@ -4,6 +4,10 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   version: {{ .Values.elasticsearch.version }}
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
   nodeSets:
     - name: default
       count: {{ .Values.elasticsearch.nodes }}
