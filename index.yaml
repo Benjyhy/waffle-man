@@ -84,6 +84,16 @@ entries:
   es:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-05-29T13:31:00.547841877Z"
+    description: A Helm chart to deploy Elasticsearch from CRD for T-CLO-902
+    digest: 6c492abf7a7a8ef45957eeb57461c713dbd3d093a8d57b46c993f6c90ca6c02a
+    name: es
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/es-0.4.0/es-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-05-29T10:05:11.632855412Z"
     description: A Helm chart to deploy Elasticsearch from CRD for T-CLO-902
     digest: 65f476cad9f42a2c7218258214385857a124e7c0083db45f0623b41fd3e88aa1
@@ -377,6 +387,16 @@ entries:
     - https://github.com/Benjyhy/waffle-man/releases/download/mysql-0.1.0/mysql-0.1.0.tgz
     version: 0.1.0
   t-clo-902:
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2023-05-29T13:31:00.665146789Z"
+    description: A Helm chart to sell cats on Kubernetes
+    digest: 2990460dec4d6e15d7028189318d57efdc538f040ca4e6bc838815f38d127823
+    name: t-clo-902
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/t-clo-902-0.65.0/t-clo-902-0.65.0.tgz
+    version: 0.65.0
   - apiVersion: v2
     appVersion: 1.1.0
     created: "2023-05-29T13:15:45.883020998Z"
@@ -987,4 +1007,4 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/t-clo-902-0.1.0/t-clo-902-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-29T13:15:45.883348798Z"
+generated: "2023-05-29T13:31:00.665677007Z"
