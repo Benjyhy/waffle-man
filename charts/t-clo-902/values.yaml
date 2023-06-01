@@ -12,14 +12,24 @@ ingressPaths:
     port: "6001"
 ghcr:
   repo: ghcr.io/benjyhy/
-  imageFrontName: front
-  imageBackName: back
-  imageIndexName: index
-  imageReportingName: report
-  imageFrontTag: latest
-  imageBackTag: latest
-  imageIndexTag: latest
-  imageReportTag: latest
+  images:
+    front:
+      name: front
+      tag: latest
+    back:
+      name: back
+      tag: latest
+    index:
+      name: index
+      tag: latest
+    reporting:
+      name: reporting
+      tag: latest
+  imageCredentials:
+    registry: ex.io
+    username: someone
+    password: shhh
+    email: someone@host.com
 amqp:
   user: user
   port: "5672"
