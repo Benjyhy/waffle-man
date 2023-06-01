@@ -1,28 +1,44 @@
-## A Helm chart to sell cats on Kubernetes
+# A Helm chart to sell cats on Kubernetes
 
+## Create docker pull secret
 ```
-kubectl create secret docker-registry ghcr-credentials --docker-server=https://ghcr.io --docker-username=benjyhy --docker-password=<PAT> --docker-email=ramet.benj@gmail.com
+kubectl create secret docker-registry ghcr-credentials --docker-server=https://ghcr.io --docker-username=<USERNAME> --docker-password=<PAT> --docker-email=<EMAIL>
 ```
 
+## Enable nginx-ingress 
+
+Minikube cluster
+```
+minikube addons enable ingress
+```
+
+Other cluster
 ```
 helm repo add ingress-nginx https://helm.nginx.com/stable
-helm -n ingress-nginx install ingress-nginx ingress-nginx/ingress-nginx --create-namespace
+helm install ingress-nginx nginx/nginx-ingress --version 0.17.1
 ```
 
-```
-#!/bin/bash
-AMQP_RELEASE_NAME="amqp-$1"
-ES_RELEASE_NAME="elasticsearch-$1"
 
+## Add helm repo and elasticsearch operator
+```
 kubectl create -f https://download.elastic.co/downloads/eck/2.8.0/crds.yaml
 kubectl apply -f https://download.elastic.co/downloads/eck/2.8.0/operator.yaml
-# wait a bit for the es CRD to be ready
+helm repo add waffle-man https://benjyhy.github.io/waffle-man/
+```
 
-helm install $AMQP_RELEASE_NAME oci://registry-1.docker.io/bitnamicharts/rabbitmq
-# wait a bit for the amqp cluster to be ready
+## Start rabbitmq and elasticsearch
+```
+helm install amqp-kubi oci://registry-1.docker.io/bitnamicharts/rabbitmq
+helm install elasticsearch-kubi waffle-man/es
+```
 
-helm install $ES_RELEASE_NAME waffle-man/es
-# wait a bit for the es resources to be ready
+## Start kubi
+```
+helm install $1 waffle-man/t-clo-902 -f values.yml
+```
 
-helm install $1 waffle-man/t-clo-902
+## Update helm repo for local changes
+```
+cd charts/t-clo-902
+helm install kubi . -f ../../values.yml
 ```

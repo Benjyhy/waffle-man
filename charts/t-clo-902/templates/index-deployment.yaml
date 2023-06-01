@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name }}-index-dep
-          image: {{ .Values.ghcrRepo }}index:latest
+          image: {{ .Values.ghcrRepo }}{{.Values.ghcrImageIndexName}}
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.index.port }}
