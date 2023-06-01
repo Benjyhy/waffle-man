@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: {{ .Values.ghcrRepo }}{{.Values.ghcrImageFrontName}}
+          image: {{ .Values.ghcr.repo }}{{ .Values.ghcr.imageFrontName }}:{{ .Values.ghcr.imageFrontTag }}
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.front.port }}

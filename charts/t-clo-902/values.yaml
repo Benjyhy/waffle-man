@@ -10,11 +10,16 @@ ingressPaths:
   back:
     path: /api/
     port: "6001"
-ghcrRepo: ghcr.io/benjyhy/
-ghcrImageFrontName: front:latest
-ghcrImageBackName: back:latest
-ghcrImageReportingName: report:latest
-ghcrImageIndexName: index:latest
+ghcr:
+  repo: ghcr.io/benjyhy/
+  imageFrontName: front
+  imageBackName: back
+  imageIndexName: index
+  imageReportingName: report
+  imageFrontTag: latest
+  imageBackTag: latest
+  imageIndexTag: latest
+  imageReportTag: latest
 amqp:
   user: user
   port: "5672"
