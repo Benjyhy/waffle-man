@@ -5,6 +5,7 @@ kubectl create secret docker-registry ghcr-credentials --docker-server=https://g
 ```
 
 ```
+helm repo add ingress-nginx https://helm.nginx.com/stable
 helm -n ingress-nginx install ingress-nginx ingress-nginx/ingress-nginx --create-namespace
 ```
 
