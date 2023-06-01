@@ -26,19 +26,19 @@ kubectl apply -f https://download.elastic.co/downloads/eck/2.8.0/operator.yaml
 helm repo add waffle-man https://benjyhy.github.io/waffle-man/
 ```
 
-## Start rabbitmq and elasticsearch
+## Start rabbitmq and elasticsearch dependencies
 ```
-helm install amqp-kubi oci://registry-1.docker.io/bitnamicharts/rabbitmq
-helm install elasticsearch-kubi waffle-man/es
+helm install amqp-<RELEASE-NAME> oci://registry-1.docker.io/bitnamicharts/rabbitmq
+helm install elasticsearch-<RELEASE-NAME> waffle-man/es
 ```
 
-## Start kubi
+## Start T-CLO-902 Project
 ```
-helm install $1 waffle-man/t-clo-902 -f values.yml
+helm install <RELEASE-NAME> waffle-man/t-clo-902
 ```
 
 ## Update helm repo for local changes
 ```
 cd charts/t-clo-902
-helm install kubi . -f ../../values.yml
+helm install <RELEASE-NAME> . -f ../../values.yml
 ```
