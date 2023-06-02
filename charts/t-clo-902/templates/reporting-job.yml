@@ -1,0 +1,28 @@
+{{- $repo := .Values.ghcr.repo }} 
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-reporting-job
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: {{ .Release.Name }}-reporting-job
+        spec:
+          containers:
+            - name: reporting
+              {{- with .Values.ghcr.images.reporting }}
+              image: {{ $repo }}{{ .name }}:{{ .tag }}
+              {{- end }}
+              imagePullPolicy: Always
+              ports:
+                - containerPort:  {{ .Values.reporting.port }}
+              envFrom:
+                - secretRef:
+                    name: {{ .Release.Name }}-reporting-secret
+          restartPolicy: OnFailure
+          imagePullSecrets:
+            - name: {{ .Values.imagePullSecret }}

@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-reporting-svc
 spec:
   selector:
-    app: {{ .Release.Name }}-reporting-dep
+    app: {{ .Release.Name }}-reporting-job
   type: ClusterIP
   ports:
     - port: {{ .Values.reporting.port }}
