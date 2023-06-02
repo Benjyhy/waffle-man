@@ -1,3 +1,4 @@
+{{- $repo := .Values.ghcr.repo }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,7 +17,9 @@ spec:
     spec:
       initContainers:
         - name: migrations
-          image: {{ .Values.ghcrRepo }}back:latest
+          {{- with .Values.ghcr.images.back }}
+          image: {{ $repo }}{{ .name }}:{{ .tag }}
+          {{- end }}
           command:
             - php
           args:
@@ -30,7 +33,9 @@ spec:
               name: {{ .Release.Name }}-back-secret
       containers:
         - name: back
-          image: {{ .Values.ghcrRepo }}back:latest
+          {{- with .Values.ghcr.images.back }}
+          image: {{ $repo }}{{ .name }}:{{ .tag }}
+          {{- end }}
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.back.laravelPort }}

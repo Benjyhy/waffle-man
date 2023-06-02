@@ -1,3 +1,4 @@
+{{- $repo := .Values.ghcr.repo }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,7 +17,9 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: {{ .Values.ghcrRepo }}front:latest
+          {{- with .Values.ghcr.images.front }}
+          image: {{ $repo }}{{ .name }}:{{ .tag }}
+          {{- end }}
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.front.port }}
