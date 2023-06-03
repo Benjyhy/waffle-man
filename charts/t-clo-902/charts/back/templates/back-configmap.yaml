@@ -12,9 +12,6 @@ data:
   APP_DEBUG: {{ .appDebug | quote }}
   APP_URL: {{ .appUrl | quote }}
   LOG_CHANNEL: {{ .logChannel | quote }}
-  DB_CONNECTION: {{ .dbConnection | quote }}
-  DB_PORT: {{ .dbPort | quote }}
-  DB_DATABASE: {{ .dbDatabase | quote }}
   BROADCAST_DRIVER: {{ .broadcastDriver | quote }}
   CACHE_DRIVER: {{ .cacheDriver | quote }}
   QUEUE_CONNECTION: {{ .queueConnection | quote }}

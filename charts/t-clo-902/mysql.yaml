@@ -1,3 +1,7 @@
-mysqlUser: root
-mysqlPassword: password
-mysqlDatabase: kubi
+auth:
+  createDatabase: true
+  database: kubi
+  username: kubi
+  rootPassword: password
+image:
+  debug: true

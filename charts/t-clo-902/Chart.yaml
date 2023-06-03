@@ -20,8 +20,8 @@ dependencies:
   - name: reporting
     version: 1.0.0
     repository: "file://./charts/reporting"
-  # - name: mysql
-  #   version: 8.0.33
-  #   repository: oci://registry-1.docker.io/bitnamicharts/mysql
-  #   import-values:
-  #     - mysql.yaml
+  - name: mysql
+    version: "9.10.1"
+    repository: "https://charts.bitnami.com/bitnami"
+    import-values:
+      - mysql.yaml

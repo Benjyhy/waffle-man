@@ -1,7 +1,7 @@
 global:
   imagePullSecret: ghcr-credentials
   ghcr:
-    repo: ghcr.io/benjyhy/
+    repo: ghcr.io/impsdc/
   elasticsearch:
     elasticsearchPort: "9200"
     elasticsearchScheme: http
@@ -10,11 +10,21 @@ global:
     user: user
     port: "5672"
   mysql:
-    imageVersion: 8
-    password: saltyproject
-    port: "3306"
-    dbName: shop
-    user: root
+    auth:
+      database: kubi
+      username: kubi
+      password: password
+      rootPassword: password
+      connection: mysql
+      port: "3006"
+mysql:
+  auth:
+    createDatabase: true
+    database: kubi
+    username: kubi
+    rootPassword: password
+  image:
+    debug: true
 
 ingressPaths:
   front:
@@ -22,7 +32,7 @@ ingressPaths:
     port: "80"
   back:
     path: /api/
-    port: "6001"
+    port: "80"
 
 ghcr:
   imageCredentials:
@@ -31,36 +41,27 @@ ghcr:
     password: shhh
     email: someone@host.com
 
-mysql:
-  imageVersion: 8
-  password: saltyproject
-  port: "3306"
-  dbName: shop
-  user: root
-
 front:
   port: "80"
-  ghcr:
-    images:
-      name: front
-      tag: latest
+  image:
+    name: kubi-front
+    tag: latest
 
 back:
-  laravelPort: "6001"
-  ghcr:
-    images:
-      name: back
-      tag: latest
+  laravelPort: "80"
+  image:
+    name: kubi-back
+    tag: latest
   configmap:
     appName: Laravel
     appEnv: production
     appKey: base64:h55oToUypq1BJwhcBAbtCnKscJGGS7xXF3zoDNf/yWE=
     appDebug: true
-    appUrl: http://myshoppp.dev.com
+    appUrl: http://kubi.com
     logChannel: stderr
     dbConnection: mysql
     dbPort: "3306"
-    dbDatabase: shop
+    dbDatabase: kubi
     broadcastDriver: log
     cacheDriver: file
     queueConnection: sync
@@ -71,16 +72,14 @@ back:
 
 index:
   port: "9229"
-  ghcr:
-  images:
-    name: index
+  image:
+    name: kubi-indexer
     tag: latest
   replicaCount: 1
 
 reporting:
   port: "8080"
-  images:
-    name: reporting
+  image:
+    name: kubi-reporting
     tag: latest
-  webhook: https://epitechfr.webhook.office.com/webhookb2/44efbfd0-41d3-410e-86b2-38a17ffc8741@901cb4ca-b862-4029-9306-e5cd0f6d9f86/IncomingWebhook/f7b0f624355549daaae65ca9d57d9137/a9b1f7db-4b5e-4dda-b431-4d14d554139c
-
+  webhook: aea
