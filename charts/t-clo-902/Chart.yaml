@@ -3,6 +3,25 @@ name: t-clo-902
 description: A Helm chart to sell cats on Kubernetes
 type: application
 
-version: 0.66.0
+version: 0.67.0
 
 appVersion: "1.1.0"
+
+dependencies:
+  - name: front
+    version: 1.0.0
+    repository: "file://./charts/front"
+  - name: index
+    version: 1.0.0
+    repository: "file://./charts/index"
+  - name: back
+    version: 1.0.0
+    repository: "file://./charts/back"
+  - name: reporting
+    version: 1.0.0
+    repository: "file://./charts/reporting"
+  # - name: mysql
+  #   version: 8.0.33
+  #   repository: oci://registry-1.docker.io/bitnamicharts/mysql
+  #   import-values:
+  #     - mysql.yaml

@@ -1,0 +1,5 @@
+port: "9229"
+image:
+  name: index
+  tag: latest
+replicaCount: 1

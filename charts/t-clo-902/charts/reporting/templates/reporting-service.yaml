@@ -7,6 +7,6 @@ spec:
     app: {{ .Release.Name }}-reporting-job
   type: ClusterIP
   ports:
-    - port: {{ .Values.reporting.port }}
-      targetPort: {{ .Values.reporting.port }}
+    - port: {{ .Values.port }}
+      targetPort: {{ .Values.port }}
       protocol: TCP

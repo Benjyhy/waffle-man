@@ -7,7 +7,7 @@ spec:
     app: {{ .Release.Name }}-mysql-dep
   ports:
     - protocol: TCP
-      {{- with .Values.mysql}}
+      {{- with .Values.global.mysql}}
       port: {{ .port }}
       targetPort: {{ .port }}
       {{- end }}

@@ -1,0 +1,3 @@
+mysqlUser: root
+mysqlPassword: password
+mysqlDatabase: kubi

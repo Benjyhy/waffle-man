@@ -1,0 +1,4 @@
+image:
+  name: front
+  tag: latest
+port: 80
