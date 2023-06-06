@@ -38,5 +38,5 @@ amqp-{{ .Release.Name }}-rabbitmq
 {{- end }}
 
 {{- define "t-clo-902.dbHost" -}}
-{{ .Release.Name }}-mysql
+{{ .Release.Name }}-mysql-svc
 {{- end }}

@@ -10,21 +10,13 @@ global:
     user: user
     port: "5672"
   mysql:
+    imageVersion: 8
+    port: "3306"
     auth:
-      database: kubi
-      username: kubi
+      username: root
       password: password
-      rootPassword: password
+      database: kubi
       connection: mysql
-      port: "3006"
-mysql:
-  auth:
-    createDatabase: true
-    database: kubi
-    username: kubi
-    rootPassword: password
-  image:
-    debug: true
 
 ingressPaths:
   front:
@@ -40,6 +32,13 @@ ghcr:
     username: someone
     password: shhh
     email: someone@host.com
+
+mysql:
+  imageVersion: 8
+  password: saltyproject
+  port: "3306"
+  dbName: shop
+  user: root
 
 front:
   port: "80"
@@ -57,11 +56,11 @@ back:
     appEnv: production
     appKey: base64:h55oToUypq1BJwhcBAbtCnKscJGGS7xXF3zoDNf/yWE=
     appDebug: true
-    appUrl: http://kubi.com
+    appUrl: http://myshoppp.dev.com
     logChannel: stderr
     dbConnection: mysql
     dbPort: "3306"
-    dbDatabase: kubi
+    dbDatabase: shop
     broadcastDriver: log
     cacheDriver: file
     queueConnection: sync
@@ -82,4 +81,5 @@ reporting:
   image:
     name: kubi-reporting
     tag: latest
-  webhook: aea
+  webhook: https://epitechfr.webhook.office.com/webhookb2/44efbfd0-41d3-410e-86b2-38a17ffc8741@901cb4ca-b862-4029-9306-e5cd0f6d9f86/IncomingWebhook/f7b0f624355549daaae65ca9d57d9137/a9b1f7db-4b5e-4dda-b431-4d14d554139c
+
