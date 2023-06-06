@@ -1,0 +1,21 @@
+laravelPort: "80"
+image:
+  name: back
+  tag: latest
+configmap:
+  appName: Laravel
+  appEnv: production
+  appKey: base64:h55oToUypq1BJwhcBAbtCnKscJGGS7xXF3zoDNf/yWE=
+  appDebug: true
+  appUrl: http://myshoppp.dev.com
+  logChannel: stderr
+  dbConnection: mysql
+  dbPort: "3306"
+  dbDatabase: shop
+  broadcastDriver: log
+  cacheDriver: file
+  queueConnection: sync
+  sessionDriver: file
+  sessionLifetime: "120"
+  rabbitmqPort: "5672"
+  rabbitmqVhost: /

@@ -7,6 +7,6 @@ spec:
     app: {{ .Release.Name }}-back-dep
   type: ClusterIP
   ports:
-    - port: {{ .Values.back.laravelPort }}
-      targetPort: {{ .Values.back.laravelPort }}
+    - port: {{ .Values.laravelPort }}
+      targetPort: {{ .Values.laravelPort }}
       protocol: TCP

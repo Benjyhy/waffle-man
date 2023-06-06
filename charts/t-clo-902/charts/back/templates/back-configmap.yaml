@@ -5,16 +5,13 @@ metadata:
 data:
   RABBITMQ_HOST: {{ include "t-clo-902.amqpHost" . }}
   DB_HOST: {{ include "t-clo-902.dbHost" . }}
-  {{- with .Values.back.configmap }}
+  {{- with .Values.configmap }}
   APP_NAME: {{ .appName | quote }}
   APP_ENV: {{ .appEnv | quote }}
   APP_KEY: {{ .appKey | quote }}
   APP_DEBUG: {{ .appDebug | quote }}
   APP_URL: {{ .appUrl | quote }}
   LOG_CHANNEL: {{ .logChannel | quote }}
-  DB_CONNECTION: {{ .dbConnection | quote }}
-  DB_PORT: {{ .dbPort | quote }}
-  DB_DATABASE: {{ .dbDatabase | quote }}
   BROADCAST_DRIVER: {{ .broadcastDriver | quote }}
   CACHE_DRIVER: {{ .cacheDriver | quote }}
   QUEUE_CONNECTION: {{ .queueConnection | quote }}
@@ -24,7 +21,7 @@ data:
   RABBITMQ_VHOST: {{ .rabbitmqVhost | quote }}
   {{- end }}
   ELASTICSEARCH_HOST: {{ include "t-clo-902.esHost" . }}
-  {{- with .Values.elasticsearch }}
+  {{- with .Values.global.elasticsearch }}
   ELASTICSEARCH_PORT: {{ .elasticsearchPort | quote }}
   ELASTICSEARCH_SCHEME: {{ .elasticsearchScheme | quote }}
   ELASTICSEARCH_USER: {{ .elasticsearchUser | quote }}

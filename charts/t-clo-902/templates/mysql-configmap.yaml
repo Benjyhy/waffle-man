@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-mysql-cm
 data:
-  mysql_database: {{ .Values.mysql.dbName | quote }}
+  mysql_database: {{ .Values.global.mysql.auth.database | quote }}

@@ -1,0 +1,30 @@
+{{- $repo := .Values.global.ghcr.repo }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-index-dep
+  labels:
+    app: {{ .Release.Name }}-index-dep
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-index-dep
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-index-dep
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-index-dep
+          {{- with .Values.image }}
+          image: {{ $repo }}{{ .name }}:{{ .tag }}
+          {{- end }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.port }}
+          envFrom:
+            - secretRef:
+                name: {{ .Release.Name }}-index-secret
+      imagePullSecrets:
+        - name: {{ .Values.global.imagePullSecret }}

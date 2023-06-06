@@ -7,6 +7,6 @@ spec:
     app: {{ .Release.Name }}-index-dep
   type: ClusterIP
   ports:
-    - port: {{ .Values.index.port }}
-      targetPort: {{ .Values.index.port }}
+    - port: {{ .Values.port }}
+      targetPort: {{ .Values.port }}
       protocol: TCP

@@ -1,4 +1,4 @@
-{{- $repo := .Values.ghcr.repo }} 
+{{- $repo := .Values.global.ghcr.repo }} 
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -14,15 +14,15 @@ spec:
         spec:
           containers:
             - name: reporting
-              {{- with .Values.ghcr.images.reporting }}
+              {{- with .Values.image }}
               image: {{ $repo }}{{ .name }}:{{ .tag }}
               {{- end }}
               imagePullPolicy: Always
               ports:
-                - containerPort:  {{ .Values.reporting.port }}
+                - containerPort:  {{ .Values.port }}
               envFrom:
                 - secretRef:
                     name: {{ .Release.Name }}-reporting-secret
           restartPolicy: OnFailure
           imagePullSecrets:
-            - name: {{ .Values.imagePullSecret }}
+            - name: {{ .Values.global.imagePullSecret }}

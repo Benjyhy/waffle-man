@@ -1,48 +1,56 @@
-imagePullSecret: ghcr-credentials
-elasticsearch:
-  elasticsearchPort: "9200"
-  elasticsearchScheme: http
-  elasticsearchUser: elastic
+global:
+  imagePullSecret: ghcr-credentials
+  ghcr:
+    repo: ghcr.io/impsdc/
+  elasticsearch:
+    elasticsearchPort: "9200"
+    elasticsearchScheme: http
+    elasticsearchUser: elastic
+  amqp:
+    user: user
+    port: "5672"
+  mysql:
+    imageVersion: 8
+    port: "3306"
+    auth:
+      username: root
+      password: password
+      database: kubi
+      connection: mysql
+
 ingressPaths:
   front:
     path: /
     port: "80"
   back:
     path: /api/
-    port: "6001"
+    port: "80"
+
 ghcr:
-  repo: ghcr.io/benjyhy/
-  images:
-    front:
-      name: front
-      tag: latest
-    back:
-      name: back
-      tag: latest
-    index:
-      name: index
-      tag: latest
-    reporting:
-      name: reporting
-      tag: latest
   imageCredentials:
     registry: ex.io
     username: someone
     password: shhh
     email: someone@host.com
-amqp:
-  user: user
-  port: "5672"
+
 mysql:
   imageVersion: 8
   password: saltyproject
   port: "3306"
   dbName: shop
   user: root
+
 front:
   port: "80"
+  image:
+    name: kubi-front
+    tag: latest
+
 back:
-  laravelPort: "6001"
+  laravelPort: "80"
+  image:
+    name: kubi-back
+    tag: latest
   configmap:
     appName: Laravel
     appEnv: production
@@ -60,10 +68,18 @@ back:
     sessionLifetime: "120"
     rabbitmqPort: "5672"
     rabbitmqVhost: /
+
 index:
-  replicaCount: 1
   port: "9229"
-reporting:
+  image:
+    name: kubi-indexer
+    tag: latest
   replicaCount: 1
+
+reporting:
   port: "8080"
+  image:
+    name: kubi-reporting
+    tag: latest
   webhook: https://epitechfr.webhook.office.com/webhookb2/44efbfd0-41d3-410e-86b2-38a17ffc8741@901cb4ca-b862-4029-9306-e5cd0f6d9f86/IncomingWebhook/f7b0f624355549daaae65ca9d57d9137/a9b1f7db-4b5e-4dda-b431-4d14d554139c
+

@@ -1,0 +1,6 @@
+Chart.lock
+charts/back*
+charts/front*
+charts/index*
+charts/reporting*
+charts/mysql*

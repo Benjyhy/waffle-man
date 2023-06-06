@@ -1,0 +1,5 @@
+port: "8080"
+image:
+  name: reporting
+  tag: latest
+webhook: https://epitechfr.webhook.office.com/webhookb2/44efbfd0-41d3-410e-86b2-38a17ffc8741@901cb4ca-b862-4029-9306-e5cd0f6d9f86/IncomingWebhook/f7b0f624355549daaae65ca9d57d9137/a9b1f7db-4b5e-4dda-b431-4d14d554139c

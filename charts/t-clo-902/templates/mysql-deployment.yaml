@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name }}-mysql-dep
-          image: mysql:{{ .Values.mysql.imageVersion }}
+          image: mysql:{{ .Values.global.mysql.imageVersion }}
           ports:
-            - containerPort: {{ .Values.mysql.port }}
+            - containerPort: {{ .Values.global.mysql.port }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
