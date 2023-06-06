@@ -25,4 +25,4 @@ spec:
                     name: {{ .Release.Name }}-reporting-secret
           restartPolicy: OnFailure
           imagePullSecrets:
-            - name: {{ .Values.global.imagePullSecret }}
+            - name: {{ include "t-clo-902.dockerCredentials" . }}

@@ -27,12 +27,28 @@ ingressPaths:
     port: "80"
 
 ghcr:
-  imageCredentials:
-    registry: ex.io
-    username: someone
-    password: shhh
-    email: someone@host.com
-
+  repo: ghcr.io/benjyhy/
+  images:
+    front:
+      name: front
+      tag: latest
+    back:
+      name: back
+      tag: latest
+    index:
+      name: index
+      tag: latest
+    reporting:
+      name: reporting
+      tag: latest
+dockerImageCredentials:
+  registry: ex.io
+  username: someone
+  password: shhh
+  email: someone@host.com
+amqp:
+  user: user
+  port: "5672"
 mysql:
   imageVersion: 8
   password: saltyproject

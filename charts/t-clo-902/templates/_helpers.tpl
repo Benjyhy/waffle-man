@@ -8,11 +8,6 @@
        number: {{ .port }}
 {{- end }}
 
-{{- define "t-clo-902.imagePullSecret" -}}
-imagePullSecrets:
-  - name: ghcr-credentials
-{{- end }}
-
 {{- define "t-clo-902.nameService" -}}
 {{ .Release.Name }}-service
 {{- end }}
@@ -39,4 +34,8 @@ amqp-{{ .Release.Name }}-rabbitmq
 
 {{- define "t-clo-902.dbHost" -}}
 {{ .Release.Name }}-mysql-svc
+{{- end }}
+
+{{- define "t-clo-902.dockerCredentials" -}}
+{{ .Release.Name }}-docker-credentials
 {{- end }}
