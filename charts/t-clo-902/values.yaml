@@ -1,7 +1,7 @@
 global:
   imagePullSecret: ghcr-credentials
   ghcr:
-    repo: ghcr.io/impsdc/
+    repo: ghcr.io/benjyhy/
   elasticsearch:
     elasticsearchPort: "9200"
     elasticsearchScheme: http
@@ -24,32 +24,27 @@ ingressPaths:
     port: "80"
   back:
     path: /api/
-    port: "80"
+    port: "6001"
 
-ghcr:
-  imageCredentials:
-    registry: ex.io
-    username: someone
-    password: shhh
-    email: someone@host.com
-
-mysql:
-  imageVersion: 8
-  password: saltyproject
-  port: "3306"
-  dbName: shop
-  user: root
+dockerImageCredentials:
+  registry: https://ghcr.io
+  username: user
+  email: email
+  accessToken: aeae
+amqp:
+  user: user
+  port: "5672"
 
 front:
   port: "80"
   image:
-    name: kubi-front
+    name: front
     tag: latest
 
 back:
-  laravelPort: "80"
+  laravelPort: "6001"
   image:
-    name: kubi-back
+    name: back
     tag: latest
   configmap:
     appName: Laravel
@@ -72,14 +67,14 @@ back:
 index:
   port: "9229"
   image:
-    name: kubi-indexer
+    name: index
     tag: latest
   replicaCount: 1
 
 reporting:
   port: "8080"
   image:
-    name: kubi-reporting
+    name: reporting
     tag: latest
   webhook: https://epitechfr.webhook.office.com/webhookb2/44efbfd0-41d3-410e-86b2-38a17ffc8741@901cb4ca-b862-4029-9306-e5cd0f6d9f86/IncomingWebhook/f7b0f624355549daaae65ca9d57d9137/a9b1f7db-4b5e-4dda-b431-4d14d554139c
 

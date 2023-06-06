@@ -24,4 +24,4 @@ spec:
           ports:
             - containerPort: {{ .Values.port }}
       imagePullSecrets:
-        - name: {{ .Values.global.imagePullSecret }}
+        - name: {{ include "t-clo-902.dockerCredentials" . }}
