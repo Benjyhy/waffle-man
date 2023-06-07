@@ -44,5 +44,12 @@ spec:
               name: {{ .Release.Name }}-back-cm
           - secretRef:
               name: {{ .Release.Name }}-back-secret
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
       imagePullSecrets:
         - name: {{ include "t-clo-902.dockerCredentials" . }}

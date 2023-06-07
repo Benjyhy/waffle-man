@@ -3,5 +3,4 @@ You've deployed the T-CLO-902 Project !
 Get Mysql pass
 
 Mysql password credentials:
-    echo "Password      : $(kubectl get secret --namespace default kubi-mysql -o jsonpath="{.data.mysql-password}" | base64 -d
-)"
+    echo "Password      : $(kubectl get secret --namespace default kubi-mysql -o jsonpath="{.data.mysql-password}" | base64 -d)"

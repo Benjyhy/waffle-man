@@ -23,6 +23,13 @@ spec:
               envFrom:
                 - secretRef:
                     name: {{ .Release.Name }}-reporting-secret
+              resources:
+                requests:
+                  memory: "64Mi"
+                  cpu: "250m"
+                limits:
+                  memory: "128Mi"
+                  cpu: "500m"              
           restartPolicy: OnFailure
           imagePullSecrets:
             - name: {{ include "t-clo-902.dockerCredentials" . }}
