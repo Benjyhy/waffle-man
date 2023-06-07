@@ -1,5 +1,4 @@
 global:
-  imagePullSecret: ghcr-credentials
   ghcr:
     repo: ghcr.io/benjyhy/
   elasticsearch:
@@ -13,10 +12,17 @@ global:
     imageVersion: 8
     port: "3306"
     auth:
-      username: root
+      username: kubi
       password: password
       database: kubi
       connection: mysql
+mysql:
+  auth:
+    createDatabase: true
+    username: kubi
+    password: password
+    database: kubi
+    connection: mysql
 
 ingressPaths:
   front:
