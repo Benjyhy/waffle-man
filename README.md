@@ -1,8 +1,15 @@
 # A Helm chart to sell cats on Kubernetes
 
-## Start T-CLO-902 local
+## Start local T-CLO-902
 ```
+helm dependency build
+charts/t-clo-902
 helm install <RELEASE-NAME> . -f ../../values.yml
+```
+
+## Delete local T-CLO-902
+```
+helm delete <RELEASE-NAME> && kubectl delete pvc data-<RELEASE-NAME>-mysql-0 && kubectl delete pvc data-<RELEASE-NAME>-rabbitmq-0 
 ```
 
 ## Enable nginx-ingress 
@@ -26,19 +33,12 @@ kubectl apply -f https://download.elastic.co/downloads/eck/2.8.0/operator.yaml
 helm repo add waffle-man https://benjyhy.github.io/waffle-man/
 ```
 
-## Start rabbitmq and elasticsearch dependencies
+## Start elasticsearch dependencies
 ```
-helm install amqp-<RELEASE-NAME> oci://registry-1.docker.io/bitnamicharts/rabbitmq
 helm install elasticsearch-<RELEASE-NAME> waffle-man/es
 ```
 
 ## Start T-CLO-902 Project
 ```
 helm install <RELEASE-NAME> waffle-man/t-clo-902
-```
-
-## Update helm repo for local changes
-```
-cd charts/t-clo-902
-helm install <RELEASE-NAME> . -f ../../values.yml
 ```
