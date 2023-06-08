@@ -15,7 +15,7 @@ minikube addons enable ingress
 Other cluster
 ```
 helm repo add ingress-nginx https://helm.nginx.com/stable
-helm install ingress-nginx nginx/nginx-ingress --version 0.17.1
+helm install ingress-nginx ingress-nginx/ingress-nginx --version 0.17.1
 ```
 
 
