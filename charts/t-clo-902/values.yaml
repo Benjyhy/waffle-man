@@ -34,6 +34,10 @@ dockerImageCredentials:
 amqp:
   user: user
   port: "5672"
+elasticsearchDefinition:
+  nodes: 2
+  version: 8.8.0
+  mmap: false
 
 front:
   port: "80"

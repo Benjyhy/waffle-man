@@ -1,4 +1,0 @@
-elasticsearch:
-  nodes: 2
-  version: 8.8.0
-  mmap: false

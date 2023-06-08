@@ -1,1 +1,0 @@
-You've deployed Elasticsearch from CRD for T-CLO-902 project !
