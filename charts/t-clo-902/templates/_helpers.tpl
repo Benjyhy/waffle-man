@@ -29,11 +29,11 @@ elasticsearch-{{ .Release.Name }}-es-http
 {{- end }}
 
 {{- define "t-clo-902.amqpHost" -}}
-amqp-{{ .Release.Name }}-rabbitmq
+{{ .Release.Name }}-rabbitmq
 {{- end }}
 
 {{- define "t-clo-902.dbHost" -}}
-{{ .Release.Name }}-mysql-svc
+{{ .Release.Name }}-mysql
 {{- end }}
 
 {{- define "t-clo-902.dockerCredentials" -}}

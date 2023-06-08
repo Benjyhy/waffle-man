@@ -1,1 +1,11 @@
 You've deployed the T-CLO-902 Project !
+
+Get Mysql pass
+
+Mysql user password :
+    kubectl get secret --namespace default kubi-mysql -o jsonpath="{.data.mysql-password}" | base64 -d
+Mysql root password²
+    kubectl get secret --namespace default kubi-mysql -o jsonpath="{.data.mysql-root-password}" | base64 -d
+
+Rabbitmq password : 
+    kubectl get secret --namespace default kubi-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 -d 

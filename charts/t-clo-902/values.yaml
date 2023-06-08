@@ -1,22 +1,37 @@
 global:
-  imagePullSecret: ghcr-credentials
   ghcr:
     repo: ghcr.io/benjyhy/
   elasticsearch:
     elasticsearchPort: "9200"
     elasticsearchScheme: http
     elasticsearchUser: elastic
-  amqp:
-    user: user
-    port: "5672"
   mysql:
     imageVersion: 8
     port: "3306"
     auth:
-      username: root
+      username: kubi
       password: password
+      rootPassword: tamer
       database: kubi
       connection: mysql
+  rabbitmq:
+    port: "5672"
+    auth: 
+      username: kubi
+      password: password
+mysql:
+  auth:
+    createDatabase: true
+    username: kubi
+    password: password
+    rootPassword: tamer
+    database: kubi
+    connection: mysql
+
+rabbitmq:
+  auth: 
+    username: kubi
+    password: password
 
 ingressPaths:
   front:

@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ .Release.Name }}-mysql-cm
-data:
-  mysql_database: {{ .Values.global.mysql.auth.database | quote }}
