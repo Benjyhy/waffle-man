@@ -8,24 +8,31 @@ version: 0.68.0
 appVersion: "1.1.0"
 
 dependencies:
-  #- name: front
-  #  version: 1.0.0
-  #  repository: "file://./charts/front"
-  #- name: index
-  #  version: 1.0.1
-  #  repository: "file://./charts/index"
-  #- name: back
-  #  version: 1.0.0
-  #  repository: "file://./charts/back"
+  - name: mysql
+    version: 9.10.2
+    repository: https://charts.bitnami.com/bitnami
+  - name: index
+    version: 1.0.1
+    repository: "file://./charts/index"
+  - name: back
+    version: 1.0.0
+    repository: "file://./charts/back"
+    condition: mysql.enabled
+  - name: reporting
+    version: 1.0.0
+    repository: "file://./charts/reporting"
+    condition: mysql.enabled
+  - name: front
+    version: 1.0.0
+    repository: "file://./charts/front"
+    condition: back.enabled
+  - name: eck-operator-crds
+    version: 2.8.0
+    repository: https://helm.elastic.co
   - name: eck-operator
     version: 2.8.0
     repository: https://helm.elastic.co
+  - name: elasticsearch
+    version: 0.1.0
+    repository: "file://./charts/elasticsearch"
 
-  # - name: reporting
-  #   version: 1.0.0
-  #   repository: "file://./charts/reporting"
-  # - name: mysql
-  #   version: 8.0.33
-  #   repository: oci://registry-1.docker.io/bitnamicharts/mysql
-  #   import-values:
-  #     - mysql.yaml

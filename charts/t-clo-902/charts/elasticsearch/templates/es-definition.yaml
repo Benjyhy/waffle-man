@@ -1,0 +1,18 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  version: {{ .Values.version }}
+  auth:
+    fileRealm:
+    - secretName: {{ .Release.Name }}-es-secret
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: {{ .Values.tlsEnabled }}
+  nodeSets:
+    - name: default
+      count: {{ .Values.nodes }}
+      config:
+        node.store.allow_mmap: {{ .Values.mmap }}
