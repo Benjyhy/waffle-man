@@ -12,7 +12,7 @@ dependencies:
     version: 1.0.0
     repository: "file://./charts/front"
   - name: index
-    version: 1.0.0
+    version: 1.0.1
     repository: "file://./charts/index"
   - name: back
     version: 1.0.0
