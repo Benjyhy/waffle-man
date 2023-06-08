@@ -17,6 +17,12 @@ dependencies:
   - name: eck-operator
     version: 2.8.0
     repository: https://helm.elastic.co
+  - name: eck-operator-crds
+    version: 2.8.0
+    repository: https://helm.elastic.co
+  - name: elasticsearch
+    version: 0.1.0
+    repository: "file://./charts/elasticsearch"
   - name: index
     version: 1.0.1
     repository: "file://./charts/index"
@@ -32,3 +38,4 @@ dependencies:
     version: 1.0.0
     repository: "file://./charts/front"
     condition: back.enabled
+
