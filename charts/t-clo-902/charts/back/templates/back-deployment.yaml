@@ -15,22 +15,22 @@ spec:
       labels:
         app: {{ .Release.Name }}-back-dep
     spec:
-      initContainers:
-        - name: migrations
-          {{- with .Values.image }}
-          image: {{ $repo }}{{ .name }}:{{ .tag }}
-          {{- end }}
-          command:
-            - php
-          args:
-            - artisan
-            - migrate
-            - --force
-          envFrom:
-          - configMapRef:
-              name: {{ .Release.Name }}-back-cm
-          - secretRef:
-              name: {{ .Release.Name }}-back-secret
+      # initContainers:
+      #   - name: migrations
+      #     {{- with .Values.image }}
+      #     image: {{ $repo }}{{ .name }}:{{ .tag }}
+      #     {{- end }}
+      #     command:
+      #       - php
+      #     args:
+      #       - artisan
+      #       - migrate
+      #       - --force
+      #     envFrom:
+      #     - configMapRef:
+      #         name: {{ .Release.Name }}-back-cm
+      #     - secretRef:
+      #         name: {{ .Release.Name }}-back-secret
       containers:
         - name: back
           {{- with .Values.image }}
