@@ -27,4 +27,4 @@ spec:
             - secretRef:
                 name: {{ .Release.Name }}-index-secret
       imagePullSecrets:
-        - name: {{ .Values.global.imagePullSecret }}
+        - name: {{ include "t-clo-902.dockerCredentials" . }}
