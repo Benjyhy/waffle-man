@@ -1,8 +1,8 @@
 # A Helm chart to sell cats on Kubernetes
 
-## Create docker pull secret
+## Start T-CLO-902 local
 ```
-kubectl create secret docker-registry ghcr-credentials --docker-server=https://ghcr.io --docker-username=<USERNAME> --docker-password=<PAT> --docker-email=<EMAIL>
+helm install <RELEASE-NAME> . -f ../../values.yml
 ```
 
 ## Enable nginx-ingress 
