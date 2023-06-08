@@ -4,3 +4,4 @@ charts/front*
 charts/index*
 charts/reporting*
 charts/mysql*
+charts/rabbitmq*
