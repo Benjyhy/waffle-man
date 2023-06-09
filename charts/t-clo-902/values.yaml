@@ -33,6 +33,15 @@ rabbitmq:
     username: kubi
     password: password
 
+mysql:
+  auth:
+    createDatabase: true
+    username: kubi
+    password: password
+    rootPassword: tamer
+    database: kubi
+    connection: mysql
+
 ingressPaths:
   front:
     path: /
