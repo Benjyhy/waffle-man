@@ -4,13 +4,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: agents.agent.k8s.elastic.co
 spec:
   group: agent.k8s.elastic.co
@@ -876,13 +874,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: apmservers.apm.k8s.elastic.co
 spec:
   group: apm.k8s.elastic.co
@@ -2122,13 +2118,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: beats.beat.k8s.elastic.co
 spec:
   group: beat.k8s.elastic.co
@@ -2629,13 +2623,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: elasticmapsservers.maps.k8s.elastic.co
 spec:
   group: maps.k8s.elastic.co
@@ -3240,13 +3232,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: elasticsearchautoscalers.autoscaling.k8s.elastic.co
 spec:
   group: autoscaling.k8s.elastic.co
@@ -3597,13 +3587,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: elasticsearches.elasticsearch.k8s.elastic.co
 spec:
   group: elasticsearch.k8s.elastic.co
@@ -6598,13 +6586,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: enterprisesearches.enterprisesearch.k8s.elastic.co
 spec:
   group: enterprisesearch.k8s.elastic.co
@@ -7778,13 +7764,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: kibanas.kibana.k8s.elastic.co
 spec:
   group: kibana.k8s.elastic.co
@@ -9116,13 +9100,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: logstashes.logstash.k8s.elastic.co
 spec:
   group: logstash.k8s.elastic.co
@@ -9909,13 +9891,11 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.4
   labels:
-    app.kubernetes.io/instance: fu
+    app.kubernetes.io/instance: es-crds
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: fu
+    app.kubernetes.io/name: es-crds
     app.kubernetes.io/version: 2.8.0
-    helm.sh/chart: fu
-    meta.helm.sh/release-name: fu
-    meta.helm.sh/release-namespace: default
+    helm.sh/chart: es-crds
   name: stackconfigpolicies.stackconfigpolicy.k8s.elastic.co
 spec:
   group: stackconfigpolicy.k8s.elastic.co

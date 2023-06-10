@@ -10,9 +10,31 @@ spec:
   http:
     tls:
       selfSignedCertificate:
-        disabled: {{ .Values.tlsEnabled }}
+        disabled: {{ .Values.tlsDisabled }}
   nodeSets:
     - name: default
       count: {{ .Values.nodes }}
       config:
         node.store.allow_mmap: {{ .Values.mmap }}
+      podTemplate:
+        spec:
+          containers:
+          - name: elasticsearch
+            readinessProbe:
+              exec:
+                command:
+                - bash
+                - -c
+                - /mnt/elastic-internal/scripts/readiness-probe-script.sh
+              failureThreshold: 3
+              initialDelaySeconds: 10
+              periodSeconds: 12
+              successThreshold: 1
+              timeoutSeconds: 120
+            securityContext:
+              runAsUser: 1
+            env:
+            - name: READINESS_PROBE_TIMEOUT
+              value: "120"
+            - name: READINESS_PROBE_PROTOCOL
+              value: http
