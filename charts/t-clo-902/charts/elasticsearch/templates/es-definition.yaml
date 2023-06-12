@@ -27,14 +27,24 @@ spec:
                 - -c
                 - /mnt/elastic-internal/scripts/readiness-probe-script.sh
               failureThreshold: 3
-              initialDelaySeconds: 10
+              initialDelaySeconds: 60
               periodSeconds: 12
               successThreshold: 1
-              timeoutSeconds: 120
-            securityContext:
-              runAsUser: 1
+              timeoutSeconds: 12
+            volumeMounts:
+              - name: custompass
+                mountPath: /mnt/elastic-internal/pod-mounted-users/
+                readOnly: true
             env:
             - name: READINESS_PROBE_TIMEOUT
               value: "120"
             - name: READINESS_PROBE_PROTOCOL
               value: http
+            - name: PROBE_PASSWORD_PATH
+              value: /mnt/elastic-internal/pod-mounted-users/elastic-internal-probe-custom
+            - name: PROBE_USERNAME
+              value: mycustomuser
+          volumes:
+            - name: custompass
+              configMap:
+                name: custompass-cm
