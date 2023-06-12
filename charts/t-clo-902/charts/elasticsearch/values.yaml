@@ -1,0 +1,6 @@
+nodes: 2
+version: 8.8.0
+mmap: false
+tlsDisabled: true
+elasticsearchUser: mycustomuser
+elasticsearchPassword: mycustompass

@@ -25,7 +25,7 @@
 {{- end }}
 
 {{- define "t-clo-902.esHost" -}}
-elasticsearch-{{ .Release.Name }}-es-http
+{{ .Release.Name }}-es-http
 {{- end }}
 
 {{- define "t-clo-902.amqpHost" -}}

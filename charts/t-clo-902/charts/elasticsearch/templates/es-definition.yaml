@@ -1,0 +1,50 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  version: {{ .Values.version }}
+  auth:
+    fileRealm:
+    - secretName: {{ .Release.Name }}-es-secret
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: {{ .Values.tlsDisabled }}
+  nodeSets:
+    - name: default
+      count: {{ .Values.nodes }}
+      config:
+        node.store.allow_mmap: {{ .Values.mmap }}
+      podTemplate:
+        spec:
+          containers:
+          - name: elasticsearch
+            readinessProbe:
+              exec:
+                command:
+                - bash
+                - -c
+                - /mnt/elastic-internal/scripts/readiness-probe-script.sh
+              failureThreshold: 3
+              initialDelaySeconds: 60
+              periodSeconds: 12
+              successThreshold: 1
+              timeoutSeconds: 12
+            volumeMounts:
+              - name: custompass
+                mountPath: /mnt/elastic-internal/pod-mounted-users/
+                readOnly: true
+            env:
+            - name: READINESS_PROBE_TIMEOUT
+              value: "120"
+            - name: READINESS_PROBE_PROTOCOL
+              value: http
+            - name: PROBE_PASSWORD_PATH
+              value: /mnt/elastic-internal/pod-mounted-users/elastic-internal-probe-custom
+            - name: PROBE_USERNAME
+              value: {{ .Values.global.elasticsearch.elasticsearchUser }}
+          volumes:
+            - name: custompass
+              secret:
+                secretName: custompass-secret
