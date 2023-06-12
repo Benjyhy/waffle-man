@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: custompass-cm
-data:
-  elastic-internal-probe-custom: |
-    mycustompass

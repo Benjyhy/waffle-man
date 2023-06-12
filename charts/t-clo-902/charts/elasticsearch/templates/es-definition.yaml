@@ -43,8 +43,8 @@ spec:
             - name: PROBE_PASSWORD_PATH
               value: /mnt/elastic-internal/pod-mounted-users/elastic-internal-probe-custom
             - name: PROBE_USERNAME
-              value: mycustomuser
+              value: {{ .Values.global.elasticsearch.elasticsearchUser }}
           volumes:
             - name: custompass
-              configMap:
-                name: custompass-cm
+              secret:
+                secretName: custompass-secret
