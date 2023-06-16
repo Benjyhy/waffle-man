@@ -1,5 +1,4 @@
-{{- $front := (printf "%s-front-svc" .Release.Name) }}
-{{- $back := (printf "%s-back-svc" .Release.Name) }}
+{{- $releaseName := (printf .Release.Name) }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -13,11 +12,11 @@ spec:
       paths:
         {{- range $key, $value := .Values.ingressPaths }}
         {{- with $value }}
-        - path: {{ .path }}
+        - path: {{ .path }}(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: {{ ternary $front $back ( eq $key "front" ) }}
+              name: {{ $releaseName }}-{{ .svc }}
               port:
                 number: {{ .port }}
         {{- end }}

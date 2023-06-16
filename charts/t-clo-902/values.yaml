@@ -38,12 +38,15 @@ rabbitmq:
     username: kubi
     password: password
 ingressPaths:
-  front:
-    path: /
-    port: "80"
-  back:
-    path: /api/
-    port: "6001"
+  - path: /
+    port: 80
+    svc: front-svc
+  - path: /api/api
+    port: 6001
+    svc: back-svc
+  - path: /monitor
+    port: 3000
+    svc: grafana
 dockerImageCredentials:
   registry: https://ghcr.io
   username: user
@@ -90,3 +93,17 @@ reporting:
   webhook: https://epitechfr.webhook.office.com/webhookb2/44efbfd0-41d3-410e-86b2-38a17ffc8741@901cb4ca-b862-4029-9306-e5cd0f6d9f86/IncomingWebhook/f7b0f624355549daaae65ca9d57d9137/a9b1f7db-4b5e-4dda-b431-4d14d554139c
 eck-operator:
   installCRDs: false
+grafana:
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - name: Prometheus
+        type: prometheus
+        url: "{{ .Release.Name }}-prometheus-server"
+  adminUser: grafanauser
+  adminPassword: grafanapassword
+  grafana.ini:
+    server:
+      root_url: http://sellcatsonk8s.com/monitor/
+      serve_from_sub_path: true
