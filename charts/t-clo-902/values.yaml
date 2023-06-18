@@ -38,15 +38,18 @@ rabbitmq:
     username: kubi
     password: password
 ingressPaths:
-  - path: /
+  front:
+    path: /
     port: 80
     svc: front-svc
-  - path: /api/api
+  back:
+    path: /api/
     port: 6001
     svc: back-svc
-  - path: /monitor
-    port: 3000
-    svc: grafana
+monitorIngress:
+  path: /monitor
+  port: 3000
+  svc: grafana
 dockerImageCredentials:
   registry: https://ghcr.io
   username: user
@@ -100,9 +103,11 @@ grafana:
       datasources:
       - name: Prometheus
         type: prometheus
-        url: "{{ .Release.Name }}-prometheus-server"
+        url: "http://{{ .Release.Name }}-prometheus-server"
   adminUser: grafanauser
   adminPassword: grafanapassword
+  dashboardsConfigMaps:
+    default: "grafana-dashboards"
   grafana.ini:
     server:
       root_url: http://sellcatsonk8s.com/monitor/

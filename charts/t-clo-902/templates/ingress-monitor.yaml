@@ -4,20 +4,19 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
-  name: {{ .Release.Name }}-ingress
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: {{ .Release.Name }}-monitor-ingress
   namespace: default
 spec:
   rules:
   - http:
       paths:
-        {{- range $key, $value := .Values.ingressPaths }}
-        {{- with $value }}
-        - path: {{ .path }}
+        {{- with .Values.monitorIngress }}
+        - path: {{ .path }}(/|$)(.*)
           pathType: Prefix
           backend:
             service:
               name: {{ $releaseName }}-{{ .svc }}
               port:
                 number: {{ .port }}
-        {{- end }}
         {{- end }}
