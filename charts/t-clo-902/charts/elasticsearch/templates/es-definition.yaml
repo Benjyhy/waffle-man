@@ -33,7 +33,7 @@ spec:
               timeoutSeconds: 12
             volumeMounts:
               - name: custompass
-                mountPath: /mnt/elastic-internal/pod-mounted-users/
+                mountPath: /mnt/elastic-internal/
                 readOnly: true
             env:
             - name: READINESS_PROBE_TIMEOUT
@@ -41,7 +41,7 @@ spec:
             - name: READINESS_PROBE_PROTOCOL
               value: http
             - name: PROBE_PASSWORD_PATH
-              value: /mnt/elastic-internal/pod-mounted-users/elastic-internal-probe-custom
+              value: /mnt/elastic-internal/elastic-internal-probe-custom
             - name: PROBE_USERNAME
               value: {{ .Values.global.elasticsearch.elasticsearchUser }}
           volumes:
