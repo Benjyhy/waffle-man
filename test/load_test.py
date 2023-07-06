@@ -1,6 +1,7 @@
 import json
-from locust import HttpUser, task, constant
 from pprint import pprint as pp
+from locust import HttpUser, task, constant
+
 
 class cacheService(HttpUser):
 
@@ -15,16 +16,18 @@ class cacheService(HttpUser):
             "image": "https://cdn2.thecatapi.com/images/746.jpg"
         }
 
-        headers = { 
+        headers = {
             "Content-type": "application/json",
             "Accept": "application/json, text/plain, */*"
         }
 
-        response = self.client.post("/api/product", headers=headers, data=json.dumps(payload))
-        data = response.json()
-        if(data["status"] == "ok"):
-            self.products = 1
-    
+        if (self.products < 4000):
+            response = self.client.post("/api/product", headers=headers, data=json.dumps(payload))
+            pp(response)
+            data = response.json()
+            if data["status"] == "ok":
+                self.products = 1
+
     @task
     def getProductFromServer(self):
         if self.products != 0:

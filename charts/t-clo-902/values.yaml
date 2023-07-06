@@ -90,7 +90,7 @@ back:
     appEnv: production
     appKey: base64:h55oToUypq1BJwhcBAbtCnKscJGGS7xXF3zoDNf/yWE=
     appDebug: true
-    appUrl: http://myshoppp.dev.com
+    appUrl: http://psdc.tech
     logChannel: stderr
     dbConnection: mysql
     dbPort: "3306"

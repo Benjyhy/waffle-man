@@ -6,7 +6,7 @@ metadata:
   namespace: default #same namespace as 
 spec:
   dnsNames:
-    - myshoppp.dev.com ###NEED A VALID DOMAIN NAME
+    - psdc.tech ###NEED A VALID DOMAIN NAME
   secretName: kubi-tls-cert
   issuerRef:
     name: {{ .Release.Name }}letsencrypt-cluster-issuer
