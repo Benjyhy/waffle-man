@@ -30,4 +30,5 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   desired_nodes = 3
   max_nodes     = 3
   min_nodes     = 3
+  autoscale     = true
 }

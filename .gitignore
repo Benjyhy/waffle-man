@@ -1,2 +1,14 @@
 /values.*
 charts/t-clo-902/charts/*.tgz
+
+test/__pycache__/
+
+terraform/variable.tfvars
+
+# Terrafor state files
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/.terraform.tfstate.lock.info
+terraform/.terraform.tfstate.lock
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup

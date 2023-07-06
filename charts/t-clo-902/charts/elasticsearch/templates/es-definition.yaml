@@ -16,6 +16,7 @@ spec:
       count: {{ .Values.nodes }}
       config:
         node.store.allow_mmap: {{ .Values.mmap }}
+        # node.security.allow_restricted_indices: true
       podTemplate:
         spec:
           containers:

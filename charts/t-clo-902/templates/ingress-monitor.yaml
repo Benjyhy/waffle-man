@@ -11,7 +11,7 @@ spec:
   rules:
   - http:
       paths:
-        {{- with .Values.monitorIngress }}
+        {{- with .Values.GrafanaIngress }}
         - path: {{ .path }}(/|$)(.*)
           pathType: Prefix
           backend:
@@ -20,3 +20,13 @@ spec:
               port:
                 number: {{ .port }}
         {{- end }}
+        {{- with .Values.KibanaIngress }}
+        - path: {{ .path }}(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ $releaseName }}-{{ .svc }}
+              port:
+                number: {{ .port }}
+        {{- end }}
+

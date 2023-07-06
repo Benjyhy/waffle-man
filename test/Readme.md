@@ -1,1 +1,2 @@
-docker-compose up --scale worker=4
+## Launch test
+    docker-compose up --scale worker=4

@@ -2,4 +2,4 @@ port: "9229"
 image:
   name: index
   tag: latest
-replicaCount: 1
+replicas: 3

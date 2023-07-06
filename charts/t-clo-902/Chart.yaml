@@ -44,3 +44,12 @@ dependencies:
   - name: grafana
     version: 6.57.2
     repository: https://grafana.github.io/helm-charts
+  - name: logstash
+    version: 7.17.3
+    repository: https://helm.elastic.co
+  - name: filebeat
+    version: 7.17.3
+    repository: https://helm.elastic.co
+  - name: kibana
+    version: 7.17.3
+    repository: https://helm.elastic.co
