@@ -13,7 +13,7 @@ variable ovh_consumer_key {
 }
 
 variable "kube_cluster_name" {
-    default = "kubi"
+    default = "log"
     type = string
 }
 
