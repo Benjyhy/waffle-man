@@ -9,7 +9,7 @@ metadata:
 spec:
   tls:
     - hosts:
-      - myshoppp.dev.com
+      - myshoppp.dev.com  ##NEED A VALID DOMAIN NAME
       secretName: kubi-tls
   rules:
   - http:
