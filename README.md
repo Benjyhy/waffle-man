@@ -4,43 +4,42 @@
 make sure to create the file ./terraform/variable.tfvars with the corresponding environment variables
 
 ### Create cluster
-```
-terraform plan --var-file="variable.tfvars"
-terraform apply --var-file="variable.tfvars"
-```
+    terraform plan --var-file="variable.tfvars"
+    terraform apply --var-file="variable.tfvars"
 
 then copy past the kubeconfig output 
 
 ### Delete cluster
-```
-terraform destroy --var-file="variable.tfvars" 
-```
+    terraform destroy --var-file="variable.tfvars" 
+
+### Switch roles for cluster access
+In order to have roles/context, you need to configure your $HOME/.kube/kubeconfig as kubeconfig.template
+
+    kubectl config use-context sysadmin | dev 
+
 
 ## Start local T-CLO-902
-```
-helm dependency build
-charts/t-clo-902
-helm install <RELEASE-NAME> . -f ../../values.yml
-```
+    helm dependency build
+    charts/t-clo-902
+    helm install <RELEASE-NAME> . -f ../../values.yml
 
 ## Delete local T-CLO-902
-```
-helm delete <RELEASE-NAME> && kubectl delete pvc data-<RELEASE-NAME>-mysql-0 && kubectl delete pvc data-<RELEASE-NAME>-rabbitmq-0 
-```
+
+    helm delete <RELEASE-NAME> && kubectl delete pvc data-<RELEASE-NAME>-mysql-0 && kubectl delete pvc data-<RELEASE-NAME>-rabbitmq-0 
+
 
 ## Enable nginx-ingress (only needed in minikube)
 
 Minikube cluster (don't forget to remove the dependency)
-```
-minikube addons enable ingress
-```
+    
+    minikube addons enable ingress
+
 
 ## Add helm repo (distant gh pages)
-```
-helm repo add waffle-man https://benjyhy.github.io/waffle-man/
-```
+    helm repo add waffle-man https://benjyhy.github.io/waffle-man/
+
 
 ## Start T-CLO-902 Project
-```
-helm install <RELEASE-NAME> waffle-man/t-clo-902
-```
+
+    helm install <RELEASE-NAME> waffle-man/t-clo-902
+
