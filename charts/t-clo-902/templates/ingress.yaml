@@ -9,7 +9,7 @@ metadata:
 spec:
   tls:
     - hosts:
-      - psdc.tech  ##NEED A VALID DOMAIN NAME
+      - psdc.tech 
       secretName: kubi-tls
   rules:
   - http:
