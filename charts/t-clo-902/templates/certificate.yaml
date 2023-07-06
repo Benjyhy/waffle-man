@@ -1,0 +1,13 @@
+{{- $releaseName := (printf .Release.Name) }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Release.Name }}-cert  #name of this object
+  namespace: default #same namespace as 
+spec:
+  dnsNames:
+    - myshoppp.dev.com ###NEED A VALID DOMAIN NAME
+  secretName: kubi-tls-cert
+  issuerRef:
+    name: {{ .Release.Name }}letsencrypt-cluster-issuer
+    kind: ClusterIssuer

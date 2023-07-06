@@ -7,6 +7,10 @@ metadata:
   name: {{ .Release.Name }}-ingress
   namespace: default
 spec:
+  tls:
+    - hosts:
+      - myshoppp.dev.com  ##NEED A VALID DOMAIN NAME
+      secretName: kubi-tls
   rules:
   - http:
       paths:
