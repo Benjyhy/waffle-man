@@ -2,12 +2,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: {{ .Release.Name }}-cert  #name of this object
-  namespace: default #same namespace as 
+  name: {{ .Release.Name }}-cert 
+  namespace: default
 spec:
   dnsNames:
     - psdc.tech 
   secretName: kubi-tls-cert
   issuerRef:
-    name: {{ .Release.Name }}letsencrypt-cluster-issuer
+    name: {{ .Release.Name }}-letsencrypt-prod
     kind: ClusterIssuer
