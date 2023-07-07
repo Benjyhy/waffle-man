@@ -1,11 +1,14 @@
 global:
+
   ghcr:
     repo: ghcr.io/benjyhy/
+
   elasticsearch:
     elasticsearchPort: "9200"
     elasticsearchScheme: http
     elasticsearchUser: mycustomuser
     elasticsearchPassword: mycustompass
+
   mysql:
     imageVersion: 8
     port: "3306"
@@ -15,16 +18,19 @@ global:
       rootPassword: tamer
       database: kubi
       connection: mysql
+
   rabbitmq:
     port: "5672"
     auth: 
       username: kubi
       password: password
+
 elasticsearch:
   nodes: 2
   version: 8.8.0
   mmap: false
   tlsDisabled: true
+
 mysql:
   auth:
     createDatabase: true
@@ -33,10 +39,12 @@ mysql:
     rootPassword: tamer
     database: kubi
     connection: mysql
+
 rabbitmq:
   auth: 
     username: kubi
     password: password
+
 ingressPaths:
   front:
     path: /
@@ -46,21 +54,27 @@ ingressPaths:
     path: /api/
     port: 6001
     svc: back-svc
-monitorIngress:
+
+GrafanaIngress:
   path: /monitor
   port: 3000
   svc: grafana
+
 dockerImageCredentials:
   registry: https://ghcr.io
   username: user
   email: email
   accessToken: aeae
+
 front:
+  replicas: 3
   port: "80"
   image:
     name: front
     tag: latest
+
 back:
+  replicas: 3
   laravelPort: "6001"
   image:
     name: back
@@ -82,20 +96,24 @@ back:
     sessionLifetime: "120"
     rabbitmqPort: "5672"
     rabbitmqVhost: /
+
 index:
+  replicas: 3
   port: "9229"
   image:
     name: index
     tag: latest
-  replicaCount: 1
+
 reporting:
   port: "8080"
   image:
     name: reporting
     tag: latest
   webhook: https://epitechfr.webhook.office.com/webhookb2/44efbfd0-41d3-410e-86b2-38a17ffc8741@901cb4ca-b862-4029-9306-e5cd0f6d9f86/IncomingWebhook/f7b0f624355549daaae65ca9d57d9137/a9b1f7db-4b5e-4dda-b431-4d14d554139c
+
 eck-operator:
   installCRDs: false
+
 grafana:
   datasources:
     datasources.yaml:

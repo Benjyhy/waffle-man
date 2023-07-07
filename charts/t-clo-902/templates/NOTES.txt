@@ -9,3 +9,6 @@ Mysql root password²
 
 Rabbitmq password : 
     kubectl get secret --namespace default {{ .Release.Name }}-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 -d 
+
+Elasticsearch password : 
+    kubectl get secret --namespace default kubi-es-secret -o jsonpath="{.data.password}" | base64 -d
