@@ -15,7 +15,7 @@ global:
     auth:
       username: kubi
       password: password
-      rootPassword: tamer
+      rootPassword: rootPassword
       database: kubi
       connection: mysql
 
@@ -36,7 +36,7 @@ mysql:
     createDatabase: true
     username: kubi
     password: password
-    rootPassword: tamer
+    rootPassword: rootPassword
     database: kubi
     connection: mysql
 
@@ -64,7 +64,7 @@ dockerImageCredentials:
   registry: https://ghcr.io
   username: user
   email: email
-  accessToken: aeae
+  accessToken: ""
 
 front:
   replicas: 3
