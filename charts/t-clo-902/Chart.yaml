@@ -3,23 +3,23 @@ name: t-clo-902
 description: A Helm chart to sell cats on Kubernetes
 type: application
 
-version: 0.70.0
+version: 0.71.0
 
 appVersion: "1.1.0"
 
 dependencies:
-  - name: ingress-nginx
-    version: 4.7.0
-    repository: https://kubernetes.github.io/ingress-nginx
+  # - name: ingress-nginx
+  #   version: 4.7.0
+  #   repository: https://kubernetes.github.io/ingress-nginx
   - name: mysql
     version: 9.10.2
     repository: https://charts.bitnami.com/bitnami
   - name: rabbitmq
     version: 12.0.0
     repository: https://charts.bitnami.com/bitnami
-  - name: cert-manager
-    version: 0.11.5
-    repository: https://charts.bitnami.com/bitnami
+  # - name: cert-manager
+  #   version: 1.12.1
+  #   repository: https://charts.jetstack.io
   - name: eck-operator
     version: 2.8.0
     repository: https://helm.elastic.co

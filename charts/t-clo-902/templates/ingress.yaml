@@ -4,13 +4,17 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    # cert-manager.io/cluster-issuer: {{ .Release.Name }}-letsencrypt-prod
+    # certmanager.k8s.io/acme-challenge-type: http01
   name: {{ .Release.Name }}-ingress
   namespace: default
 spec:
-  tls:
-    - hosts:
-      - psdc.tech  ##NEED A VALID DOMAIN NAME
-      secretName: kubi-tls
+  # tls:
+  #   - hosts:
+  #     - psdc.tech  
+  #     secretName: kubi-tls
   rules:
   - http:
       paths:

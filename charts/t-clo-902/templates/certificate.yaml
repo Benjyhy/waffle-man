@@ -1,13 +1,13 @@
-{{- $releaseName := (printf .Release.Name) }}
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: {{ .Release.Name }}-cert  #name of this object
-  namespace: default #same namespace as 
-spec:
-  dnsNames:
-    - psdc.tech ###NEED A VALID DOMAIN NAME
-  secretName: kubi-tls-cert
-  issuerRef:
-    name: {{ .Release.Name }}letsencrypt-cluster-issuer
-    kind: ClusterIssuer
+# {{- $releaseName := (printf .Release.Name) }}
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: {{ .Release.Name }}-cert 
+#   namespace: default
+# spec:
+#   dnsNames:
+#     - psdc.tech 
+#   secretName: kubi-tls
+#   issuerRef:
+#     name: {{ .Release.Name }}-letsencrypt-prod
+#     kind: ClusterIssuer

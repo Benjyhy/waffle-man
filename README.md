@@ -41,5 +41,5 @@ Minikube cluster (don't forget to remove the dependency)
 
 ## Start T-CLO-902 Project
 
-    helm install <RELEASE-NAME> waffle-man/t-clo-902
+    helm install <RELEASE-NAME> waffle-man/t-clo-902 -f values.yml
 
