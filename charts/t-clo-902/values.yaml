@@ -15,7 +15,7 @@ global:
     auth:
       username: kubi
       password: password
-      rootPassword: tamer
+      rootPassword: rootpassword
       database: kubi
       connection: mysql
 
@@ -36,7 +36,7 @@ mysql:
     createDatabase: true
     username: kubi
     password: password
-    rootPassword: root
+    rootPassword: rootpassword
     database: kubi
     connection: mysql
 
@@ -60,11 +60,6 @@ GrafanaIngress:
   path: /grafana
   port: 3000
   svc: grafana
-
-KibanaIngress:
-  path: /kibana
-  port: 5601
-  svc: kibana
 
 dockerImageCredentials:
   registry: https://ghcr.io
@@ -132,50 +127,3 @@ grafana:
   adminPassword: grafanapassword
   dashboardsConfigMaps:
     default: "grafana-dashboards"
-
-logstash:
-  logstash.conf: |
-    input {
-      beats {
-        port => 5044
-      }
-    }
-    output { elasticsearch { hosts => "{{ .Release.Name }}-es-http:9200" } }
-  service:
-    annotations: {}
-    type: ClusterIP
-    loadBalancerIP: ""
-    ports:
-      - name: beats
-        port: 5044
-        protocol: TCP
-        targetPort: 5044
-      - name: http
-        port: 8080
-        protocol: TCP
-        targetPort: 8080
-
-filebeat: 
-  filebeatConfig:
-    filebeat.yml: |
-      filebeat.inputs:
-      - type: container
-        paths:
-          - /var/log/containers/*.log
-        processors:
-        - add_kubernetes_metadata:
-            host: ${NODE_NAME}
-            matchers:
-            - logs_path:
-                logs_path: "/var/log/containers/"
-
-      output.logstash:
-        hosts: ["kubi-logstash:5044"]
-
-kibana: 
-  elasticsearchHosts: http://kubi-es-http:9200
-  extraEnvs:
-    - name: ELASTICSEARCH_USERNAME
-      value: user
-    - name: ELASTICSEARCH_PASSWORD
-      value: password

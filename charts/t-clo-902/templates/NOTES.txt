@@ -1,6 +1,5 @@
-You've deployed the T-CLO-902 Project !
 
-Get Mysql pass
+You've deployed the T-CLO-902 Project !
 
 Mysql user password :
     kubectl get secret --namespace default {{ .Release.Name }}-mysql -o jsonpath="{.data.mysql-password}" | base64 -d
