@@ -22,12 +22,12 @@ resource "ovh_cloud_project_kube" "my_kube_cluster" {
 }
 
 # Create a Node Pool for our Kubernetes cluster
-# resource "ovh_cloud_project_kube_nodepool" "node_pool" {
-#   service_name  = var.kube_service_name
-#   kube_id       = ovh_cloud_project_kube.my_kube_cluster.id
-#   name          = "my-pool" 
-#   flavor_name   = "b2-7"
-#   desired_nodes = 1
-#   max_nodes     = 1
-#   min_nodes     = 1
-# }
+resource "ovh_cloud_project_kube_nodepool" "node_pool" {
+  service_name  = var.kube_service_name
+  kube_id       = ovh_cloud_project_kube.my_kube_cluster.id
+  name          = "my-pool" 
+  flavor_name   = "b2-7"
+  desired_nodes = 1
+  max_nodes     = 1
+  min_nodes     = 1
+}

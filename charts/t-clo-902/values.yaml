@@ -56,8 +56,8 @@ ingressPaths:
     port: 6001
     svc: back-svc
     
-GrafanaIngress:
-  path: /grafana
+monitorIngress:
+  path: /monitor
   port: 3000
   svc: grafana
 

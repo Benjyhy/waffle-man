@@ -11,7 +11,7 @@ spec:
   rules:
   - http:
       paths:
-        {{- with .Values.GrafanaIngress }}
+        {{- with .Values.monitorIngress }}
         - path: {{ .path }}(/|$)(.*)
           pathType: Prefix
           backend:
