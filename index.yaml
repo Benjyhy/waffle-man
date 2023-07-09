@@ -389,6 +389,56 @@ entries:
   t-clo-902:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2023-07-09T14:52:03.544409142Z"
+    dependencies:
+    - name: ingress-nginx
+      repository: https://kubernetes.github.io/ingress-nginx
+      version: 4.7.0
+    - name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.10.2
+    - name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.0.0
+    - name: cert-manager
+      repository: https://charts.jetstack.io
+      version: 1.12.1
+    - name: eck-operator
+      repository: https://helm.elastic.co
+      version: 2.8.0
+    - name: elasticsearch
+      repository: file://./charts/elasticsearch
+      version: 0.1.0
+    - name: index
+      repository: file://./charts/index
+      version: 1.0.1
+    - condition: mysql.enabled
+      name: back
+      repository: file://./charts/back
+      version: 1.0.0
+    - condition: mysql.enabled
+      name: reporting
+      repository: file://./charts/reporting
+      version: 1.0.0
+    - condition: back.enabled
+      name: front
+      repository: file://./charts/front
+      version: 1.0.0
+    - name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 22.6.4
+    - name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.57.2
+    description: A Helm chart to sell cats on Kubernetes
+    digest: f9c05bd0187bc0fbf444340e71b7597c843ba85a37e31600bfda913b0aa62cf9
+    name: t-clo-902
+    type: application
+    urls:
+    - https://github.com/Benjyhy/waffle-man/releases/download/t-clo-902-0.72.0/t-clo-902-0.72.0.tgz
+    version: 0.72.0
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2023-07-09T11:38:04.79300957Z"
     dependencies:
     - name: mysql
@@ -1183,4 +1233,4 @@ entries:
     urls:
     - https://github.com/Benjyhy/waffle-man/releases/download/t-clo-902-0.1.0/t-clo-902-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-09T11:38:04.793327178Z"
+generated: "2023-07-09T14:52:03.544809751Z"
