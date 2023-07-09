@@ -38,12 +38,7 @@ Minikube cluster (don't forget to remove the dependency)
 ## Add helm repo (distant gh pages)
     helm repo add waffle-man https://benjyhy.github.io/waffle-man/
 
-a
+
 ## Start T-CLO-902 Project
 
     helm install <RELEASE-NAME> waffle-man/t-clo-902
-
-
-curl -u "user:password" -k "http://kubi-es-http:9200/_security/user"
-curl -u "user:password" -XGET "http://kubi-es-http:9200/_security/user?pretty"                         
-
