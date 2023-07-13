@@ -1,0 +1,12 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: kibana
+  namespace: default
+spec:
+  version: 8.8.2
+  count: 1
+  config:
+    elasticsearch.hosts: http://kubi-es-http:9200
+    elasticsearch.username: user
+    elasticsearch.password: password

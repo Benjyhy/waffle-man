@@ -20,3 +20,10 @@ spec:
               port:
                 number: {{ .port }}
         {{- end }}
+        - path: /kibana(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: kibana-kb-http
+              port:
+                number: 5601
